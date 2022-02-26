@@ -22,6 +22,11 @@ namespace Estetica_Rossy
             DatosUsuario(Usuario, Cargo);
         }
 
+        private void Cliente_Load(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
         ClsConexion DB_CONN = new ClsConexion();
         SqlCommand cm = new SqlCommand();
 
@@ -145,5 +150,11 @@ namespace Estetica_Rossy
 
         #endregion
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        
     }
 }

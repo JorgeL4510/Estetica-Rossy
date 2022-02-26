@@ -30,31 +30,43 @@ namespace Estetica_Rossy
             return dt;
         }
 
-        public DataTable CargarCombo_DatosHorarioInicio()
+        public DataTable CargarCombo_DatosHoras()
         {
-            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_HorarioInicio", cn.LeerCadena());
+            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Horas", cn.LeerCadena());
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
 
-        public DataTable CargarCombo_DatosHorarioFin()
+        public DataTable CargarCombo_DatosMinutos()
         {
-            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_HorarioFin", cn.LeerCadena());
+            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Minutos", cn.LeerCadena());
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
 
-        public DataTable CargarCombo_DatosMarcasProductos()
+        public DataTable CargarCombo_DatosMarcas()
         {
-            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_MarcasProductos", cn.LeerCadena());
+            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Marcas", cn.LeerCadena());
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
+
+        public DataTable CargarCombo_DatosProveedores()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Proveedores", cn.LeerCadena());
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+
     }
 }
