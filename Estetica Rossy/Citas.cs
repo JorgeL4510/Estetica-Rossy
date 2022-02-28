@@ -22,8 +22,7 @@ namespace Estetica_Rossy
             UsuarioN = Usuario;
             CargoN = Cargo;
             lblUsuario.Text = "Usuario: " + Usuario;
-            lblCargo.Text = Cargo;
-            //LlenarGrid();
+            lblCargo.Text = Cargo;            
         }
 
         
@@ -69,11 +68,20 @@ namespace Estetica_Rossy
         }
 
         private void LimpiarCampos()
-        {
-            this.dTPBuscar.Value = DateTime.Now;
+        {            
             this.CMBCliente.SelectedIndex = 0;
-            this.CMBHoraFin_AMPM.SelectedIndex = 0;
+           
             this.CMBHoraInicio_Hora.SelectedIndex = 0;
+            this.CMBHoraInicio_Minuto.SelectedIndex = 0;
+            this.CMBHoraInicio_AMPM.SelectedIndex = 0;
+
+            this.CMBHoraFin_AMPM.SelectedIndex = 0;
+            this.CMBHoraFin_Hora.SelectedIndex = 0;
+            this.CMBHoraFin_Minuto.SelectedIndex = 0;
+
+            this.dTPBuscar.Value = DateTime.Today;
+            this.dTFechaCita.Value = DateTime.Today;
+
             this.CBCancelacion.Checked = false;
             dTFechaCita.MinDate = DateTime.Today;
         }
@@ -147,12 +155,26 @@ namespace Estetica_Rossy
             }
         }
 
+
+        private bool Condiciones()
+        {
+            if ( CBCancelacion.Checked == true || CMBHoraInicio_Hora.SelectedIndex > CMBHoraFin_Hora.SelectedIndex || dTFechaCita.Value < DateTime.Today ||
+             CMBHoraInicio_AMPM.SelectedIndex > CMBHoraFin_AMPM.SelectedIndex || CMBHoraFin_AMPM.SelectedIndex < CMBHoraInicio_AMPM.SelectedIndex ||
+             ( CMBHoraInicio_AMPM.SelectedIndex == CMBHoraFin_AMPM.SelectedIndex && CMBHoraInicio_Hora.SelectedIndex == CMBHoraFin_Hora.SelectedIndex && CMBHoraFin_Minuto.SelectedIndex == CMBHoraInicio_Minuto.SelectedIndex ||
+             (CMBHoraInicio_AMPM.SelectedIndex == CMBHoraFin_AMPM.SelectedIndex && CMBHoraInicio_Hora.SelectedIndex == CMBHoraFin_Hora.SelectedIndex && (CMBHoraInicio_Minuto.SelectedIndex == CMBHoraFin_Minuto.SelectedIndex || CMBHoraInicio_Minuto.SelectedIndex > CMBHoraFin_Minuto.SelectedIndex || (CMBHoraFin_Minuto.SelectedIndex - CMBHoraInicio_Minuto.SelectedIndex) < 5) ) ) )            
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
         #endregion
 
         //Funciones Pantalla
         #region
 
-        private void ImgLupa_Click_1(object sender, EventArgs e)
+        private void dTPBuscar_ValueChanged(object sender, EventArgs e)
         {
             Buscar();
         }
@@ -164,8 +186,7 @@ namespace Estetica_Rossy
 
         private void añadirCitaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CBCancelacion.Checked == true || CMBHoraInicio_Hora.SelectedIndex > CMBHoraFin_Hora.SelectedIndex ||                  
-                CMBHoraInicio_AMPM.SelectedIndex > CMBHoraFin_AMPM.SelectedIndex || CMBHoraFin_AMPM.SelectedIndex < CMBHoraInicio_AMPM.SelectedIndex)
+            if (Condiciones())
             {
                 MessageBox.Show("Datos ingresados incorrectamente");
             }
@@ -200,11 +221,10 @@ namespace Estetica_Rossy
         }
 
 
+
+
         #endregion
 
-        private void dTPBuscar_ValueChanged(object sender, EventArgs e)
-        {
-            Buscar();
-        }
+
     }
 }

@@ -110,11 +110,6 @@ namespace Estetica_Rossy
             LlenarGrid();
         }
 
-        private void ImgLupa_Click(object sender, EventArgs e)
-        {
-            Buscar();
-        }
-
         private void añadirClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (txtNombreCliente.Text == "" || txtTelefono.Text == "" || nUDEdad.Value == 0)
