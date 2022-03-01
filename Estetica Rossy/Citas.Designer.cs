@@ -35,9 +35,7 @@ namespace Estetica_Rossy
             this.CMBCliente = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.lblHoraFin = new System.Windows.Forms.Label();
             this.dTFechaCita = new System.Windows.Forms.DateTimePicker();
-            this.CMBHoraFin_AMPM = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCargo = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -54,10 +52,12 @@ namespace Estetica_Rossy
             this.CMBHoraInicio_Hora = new System.Windows.Forms.ComboBox();
             this.lblHoraInicio = new System.Windows.Forms.Label();
             this.CBCancelacion = new System.Windows.Forms.CheckBox();
-            this.CMBHoraInicio_Minuto = new System.Windows.Forms.ComboBox();
             this.CMBHoraInicio_AMPM = new System.Windows.Forms.ComboBox();
+            this.txtTratamiento = new System.Windows.Forms.TextBox();
+            this.lblTratamiento = new System.Windows.Forms.Label();
+            this.CMBHoraFin_AMPM = new System.Windows.Forms.ComboBox();
             this.CMBHoraFin_Hora = new System.Windows.Forms.ComboBox();
-            this.CMBHoraFin_Minuto = new System.Windows.Forms.ComboBox();
+            this.lblHoraFin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -66,14 +66,18 @@ namespace Estetica_Rossy
             // 
             // dGCitas
             // 
+            this.dGCitas.AllowUserToAddRows = false;
+            this.dGCitas.AllowUserToDeleteRows = false;
             this.dGCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGCitas.Location = new System.Drawing.Point(12, 464);
+            this.dGCitas.Location = new System.Drawing.Point(8, 466);
             this.dGCitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dGCitas.Name = "dGCitas";
+            this.dGCitas.ReadOnly = true;
             this.dGCitas.RowHeadersWidth = 51;
             this.dGCitas.RowTemplate.Height = 24;
             this.dGCitas.Size = new System.Drawing.Size(885, 318);
             this.dGCitas.TabIndex = 0;
+            this.dGCitas.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGCitas_RowHeaderMouseDoubleClick);
             // 
             // lblBuscar
             // 
@@ -126,16 +130,6 @@ namespace Estetica_Rossy
             this.lblFecha.TabIndex = 31;
             this.lblFecha.Text = "Fecha";
             // 
-            // lblHoraFin
-            // 
-            this.lblHoraFin.AutoSize = true;
-            this.lblHoraFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraFin.Location = new System.Drawing.Point(444, 366);
-            this.lblHoraFin.Name = "lblHoraFin";
-            this.lblHoraFin.Size = new System.Drawing.Size(94, 25);
-            this.lblHoraFin.TabIndex = 34;
-            this.lblHoraFin.Text = "Hora Fin";
-            // 
             // dTFechaCita
             // 
             this.dTFechaCita.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,19 +138,6 @@ namespace Estetica_Rossy
             this.dTFechaCita.Name = "dTFechaCita";
             this.dTFechaCita.Size = new System.Drawing.Size(423, 30);
             this.dTFechaCita.TabIndex = 36;
-            // 
-            // CMBHoraFin_AMPM
-            // 
-            this.CMBHoraFin_AMPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraFin_AMPM.FormattingEnabled = true;
-            this.CMBHoraFin_AMPM.Items.AddRange(new object[] {
-            "AM",
-            "PM"});
-            this.CMBHoraFin_AMPM.Location = new System.Drawing.Point(796, 362);
-            this.CMBHoraFin_AMPM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraFin_AMPM.Name = "CMBHoraFin_AMPM";
-            this.CMBHoraFin_AMPM.Size = new System.Drawing.Size(97, 33);
-            this.CMBHoraFin_AMPM.TabIndex = 37;
             // 
             // panel1
             // 
@@ -284,7 +265,7 @@ namespace Estetica_Rossy
             // 
             this.CMBHoraInicio_Hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CMBHoraInicio_Hora.FormattingEnabled = true;
-            this.CMBHoraInicio_Hora.Location = new System.Drawing.Point(553, 303);
+            this.CMBHoraInicio_Hora.Location = new System.Drawing.Point(675, 301);
             this.CMBHoraInicio_Hora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CMBHoraInicio_Hora.Name = "CMBHoraInicio_Hora";
             this.CMBHoraInicio_Hora.Size = new System.Drawing.Size(115, 33);
@@ -294,7 +275,7 @@ namespace Estetica_Rossy
             // 
             this.lblHoraInicio.AutoSize = true;
             this.lblHoraInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraInicio.Location = new System.Drawing.Point(420, 313);
+            this.lblHoraInicio.Location = new System.Drawing.Point(542, 311);
             this.lblHoraInicio.Name = "lblHoraInicio";
             this.lblHoraInicio.Size = new System.Drawing.Size(115, 25);
             this.lblHoraInicio.TabIndex = 44;
@@ -312,16 +293,6 @@ namespace Estetica_Rossy
             this.CBCancelacion.Text = "Cancelado";
             this.CBCancelacion.UseVisualStyleBackColor = true;
             // 
-            // CMBHoraInicio_Minuto
-            // 
-            this.CMBHoraInicio_Minuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraInicio_Minuto.FormattingEnabled = true;
-            this.CMBHoraInicio_Minuto.Location = new System.Drawing.Point(675, 303);
-            this.CMBHoraInicio_Minuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraInicio_Minuto.Name = "CMBHoraInicio_Minuto";
-            this.CMBHoraInicio_Minuto.Size = new System.Drawing.Size(115, 33);
-            this.CMBHoraInicio_Minuto.TabIndex = 45;
-            // 
             // CMBHoraInicio_AMPM
             // 
             this.CMBHoraInicio_AMPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -335,25 +306,56 @@ namespace Estetica_Rossy
             this.CMBHoraInicio_AMPM.Size = new System.Drawing.Size(97, 33);
             this.CMBHoraInicio_AMPM.TabIndex = 45;
             // 
+            // txtTratamiento
+            // 
+            this.txtTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTratamiento.Location = new System.Drawing.Point(17, 363);
+            this.txtTratamiento.Name = "txtTratamiento";
+            this.txtTratamiento.Size = new System.Drawing.Size(385, 30);
+            this.txtTratamiento.TabIndex = 47;
+            // 
+            // lblTratamiento
+            // 
+            this.lblTratamiento.AutoSize = true;
+            this.lblTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTratamiento.Location = new System.Drawing.Point(16, 335);
+            this.lblTratamiento.Name = "lblTratamiento";
+            this.lblTratamiento.Size = new System.Drawing.Size(127, 25);
+            this.lblTratamiento.TabIndex = 31;
+            this.lblTratamiento.Text = "Tratamiento";
+            // 
+            // CMBHoraFin_AMPM
+            // 
+            this.CMBHoraFin_AMPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CMBHoraFin_AMPM.FormattingEnabled = true;
+            this.CMBHoraFin_AMPM.Items.AddRange(new object[] {
+            "AM",
+            "PM"});
+            this.CMBHoraFin_AMPM.Location = new System.Drawing.Point(796, 362);
+            this.CMBHoraFin_AMPM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CMBHoraFin_AMPM.Name = "CMBHoraFin_AMPM";
+            this.CMBHoraFin_AMPM.Size = new System.Drawing.Size(97, 33);
+            this.CMBHoraFin_AMPM.TabIndex = 37;
+            // 
             // CMBHoraFin_Hora
             // 
             this.CMBHoraFin_Hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CMBHoraFin_Hora.FormattingEnabled = true;
-            this.CMBHoraFin_Hora.Location = new System.Drawing.Point(553, 362);
+            this.CMBHoraFin_Hora.Location = new System.Drawing.Point(675, 360);
             this.CMBHoraFin_Hora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CMBHoraFin_Hora.Name = "CMBHoraFin_Hora";
             this.CMBHoraFin_Hora.Size = new System.Drawing.Size(115, 33);
             this.CMBHoraFin_Hora.TabIndex = 37;
             // 
-            // CMBHoraFin_Minuto
+            // lblHoraFin
             // 
-            this.CMBHoraFin_Minuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraFin_Minuto.FormattingEnabled = true;
-            this.CMBHoraFin_Minuto.Location = new System.Drawing.Point(675, 362);
-            this.CMBHoraFin_Minuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraFin_Minuto.Name = "CMBHoraFin_Minuto";
-            this.CMBHoraFin_Minuto.Size = new System.Drawing.Size(115, 33);
-            this.CMBHoraFin_Minuto.TabIndex = 37;
+            this.lblHoraFin.AutoSize = true;
+            this.lblHoraFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoraFin.Location = new System.Drawing.Point(566, 364);
+            this.lblHoraFin.Name = "lblHoraFin";
+            this.lblHoraFin.Size = new System.Drawing.Size(94, 25);
+            this.lblHoraFin.TabIndex = 34;
+            this.lblHoraFin.Text = "Hora Fin";
             // 
             // Citas
             // 
@@ -361,19 +363,19 @@ namespace Estetica_Rossy
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(909, 795);
+            this.Controls.Add(this.txtTratamiento);
             this.Controls.Add(this.CBCancelacion);
             this.Controls.Add(this.CMBHoraInicio_AMPM);
-            this.Controls.Add(this.CMBHoraInicio_Minuto);
             this.Controls.Add(this.CMBHoraInicio_Hora);
             this.Controls.Add(this.lblHoraInicio);
             this.Controls.Add(this.dTPBuscar);
             this.Controls.Add(this.ImgActualiar);
             this.Controls.Add(this.lblCitas);
-            this.Controls.Add(this.CMBHoraFin_Minuto);
             this.Controls.Add(this.CMBHoraFin_Hora);
             this.Controls.Add(this.CMBHoraFin_AMPM);
             this.Controls.Add(this.dTFechaCita);
             this.Controls.Add(this.lblHoraFin);
+            this.Controls.Add(this.lblTratamiento);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.CMBCliente);
@@ -406,9 +408,7 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ComboBox CMBCliente;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label lblHoraFin;
         private System.Windows.Forms.DateTimePicker dTFechaCita;
-        private System.Windows.Forms.ComboBox CMBHoraFin_AMPM;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
@@ -425,9 +425,11 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ComboBox CMBHoraInicio_Hora;
         private System.Windows.Forms.Label lblHoraInicio;
         private System.Windows.Forms.CheckBox CBCancelacion;
-        private System.Windows.Forms.ComboBox CMBHoraInicio_Minuto;
         private System.Windows.Forms.ComboBox CMBHoraInicio_AMPM;
+        private System.Windows.Forms.TextBox txtTratamiento;
+        private System.Windows.Forms.Label lblTratamiento;
+        private System.Windows.Forms.ComboBox CMBHoraFin_AMPM;
         private System.Windows.Forms.ComboBox CMBHoraFin_Hora;
-        private System.Windows.Forms.ComboBox CMBHoraFin_Minuto;
+        private System.Windows.Forms.Label lblHoraFin;
     }
 }

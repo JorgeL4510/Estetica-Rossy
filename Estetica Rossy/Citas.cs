@@ -22,10 +22,10 @@ namespace Estetica_Rossy
             UsuarioN = Usuario;
             CargoN = Cargo;
             lblUsuario.Text = "Usuario: " + Usuario;
-            lblCargo.Text = Cargo;            
+            lblCargo.Text = Cargo;
         }
 
-        
+
         private void Citas_Load(object sender, EventArgs e)
         {
             CargarComboBox();
@@ -36,7 +36,13 @@ namespace Estetica_Rossy
         SqlCommand cm = new SqlCommand();
 
         DataTable dt;
+
         string IdCliente;
+        string Nombre;
+        string Fecha;
+        string Hora;
+        string Tratamiento;
+
 
         //Cambiar ventana
         #region
@@ -68,22 +74,27 @@ namespace Estetica_Rossy
         }
 
         private void LimpiarCampos()
-        {            
+        {
             this.CMBCliente.SelectedIndex = 0;
-           
+
             this.CMBHoraInicio_Hora.SelectedIndex = 0;
-            this.CMBHoraInicio_Minuto.SelectedIndex = 0;
             this.CMBHoraInicio_AMPM.SelectedIndex = 0;
 
             this.CMBHoraFin_AMPM.SelectedIndex = 0;
             this.CMBHoraFin_Hora.SelectedIndex = 0;
-            this.CMBHoraFin_Minuto.SelectedIndex = 0;
 
             this.dTPBuscar.Value = DateTime.Today;
             this.dTFechaCita.Value = DateTime.Today;
 
             this.CBCancelacion.Checked = false;
             dTFechaCita.MinDate = DateTime.Today;
+        }
+
+
+        private void Eliminar()
+        {
+
+
         }
 
         private void Buscar()
@@ -93,7 +104,6 @@ namespace Estetica_Rossy
                 cm = new SqlCommand("Buscar_Cita", DB_CONN.DB_CONN);
                 cm.CommandType = CommandType.StoredProcedure;
                 cm.Parameters.Add("@Fecha", SqlDbType.Date).Value = dTPBuscar.Value; //Guardar Fecha de Cita para realizar busqueda
-
 
                 cm.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -110,7 +120,8 @@ namespace Estetica_Rossy
 
         private void LlenarGrid()
         {
-            dGCitas.DataSource = GetData("MostrarCita");            
+            dGCitas.DataSource = GetData("MostrarCita");
+            dGCitas.Columns["IdCita"].Visible = false;               
         }
 
         private void CargarComboBox()
@@ -125,17 +136,10 @@ namespace Estetica_Rossy
                 CMBHoraInicio_Hora.DisplayMember = "Hora";
                 CMBHoraInicio_Hora.ValueMember = "IdHora";
 
-                CMBHoraInicio_Minuto.DataSource = cat.CargarCombo_DatosMinutos();
-                CMBHoraInicio_Minuto.DisplayMember = "Minutos";
-                CMBHoraInicio_Minuto.ValueMember = "IdMinutos";
-
                 CMBHoraFin_Hora.DataSource = cat.CargarCombo_DatosHoras();
                 CMBHoraFin_Hora.DisplayMember = "Hora";
                 CMBHoraFin_Hora.ValueMember = "IdHora";
 
-                CMBHoraFin_Minuto.DataSource = cat.CargarCombo_DatosMinutos();
-                CMBHoraFin_Minuto.DisplayMember = "Minutos";
-                CMBHoraFin_Minuto.ValueMember = "IdMinutos";
             }
             catch (Exception ex)
             {
@@ -146,7 +150,7 @@ namespace Estetica_Rossy
         private int? GetID()
         {
             try
-            {                
+            {
                 return int.Parse(dGCitas.Rows[dGCitas.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch
@@ -158,10 +162,8 @@ namespace Estetica_Rossy
 
         private bool Condiciones()
         {
-            if ( CBCancelacion.Checked == true || CMBHoraInicio_Hora.SelectedIndex > CMBHoraFin_Hora.SelectedIndex || dTFechaCita.Value < DateTime.Today ||
-             CMBHoraInicio_AMPM.SelectedIndex > CMBHoraFin_AMPM.SelectedIndex || CMBHoraFin_AMPM.SelectedIndex < CMBHoraInicio_AMPM.SelectedIndex ||
-             ( CMBHoraInicio_AMPM.SelectedIndex == CMBHoraFin_AMPM.SelectedIndex && CMBHoraInicio_Hora.SelectedIndex == CMBHoraFin_Hora.SelectedIndex && CMBHoraFin_Minuto.SelectedIndex == CMBHoraInicio_Minuto.SelectedIndex ||
-             (CMBHoraInicio_AMPM.SelectedIndex == CMBHoraFin_AMPM.SelectedIndex && CMBHoraInicio_Hora.SelectedIndex == CMBHoraFin_Hora.SelectedIndex && (CMBHoraInicio_Minuto.SelectedIndex == CMBHoraFin_Minuto.SelectedIndex || CMBHoraInicio_Minuto.SelectedIndex > CMBHoraFin_Minuto.SelectedIndex || (CMBHoraFin_Minuto.SelectedIndex - CMBHoraInicio_Minuto.SelectedIndex) < 5) ) ) )            
+            if (CBCancelacion.Checked == true || CMBHoraInicio_Hora.SelectedIndex > CMBHoraFin_Hora.SelectedIndex || dTFechaCita.Value < DateTime.Today ||
+             CMBHoraInicio_AMPM.SelectedIndex > CMBHoraFin_AMPM.SelectedIndex || CMBHoraFin_AMPM.SelectedIndex < CMBHoraInicio_AMPM.SelectedIndex)
             {
                 return true;
             }
@@ -200,10 +202,11 @@ namespace Estetica_Rossy
                     cm = new SqlCommand("AgregarCita", DB_CONN.DB_CONN);
                     cm.CommandType = CommandType.StoredProcedure;
                     cm.Parameters.Add("@Fecha", SqlDbType.Date).Value = dTFechaCita.Value; //Guardar Fecha de Cita
-                    cm.Parameters.Add("@HoraInicio", SqlDbType.VarChar).Value = CMBHoraInicio_Hora.Text + " : " + CMBHoraInicio_Minuto.Text + " " + CMBHoraInicio_AMPM.Text; // Guardar Hora de inicio de cita
-                    cm.Parameters.Add("@HoraFin", SqlDbType.VarChar).Value = CMBHoraFin_Hora.Text + " : " + CMBHoraFin_Minuto.Text + " " + CMBHoraFin_AMPM.Text; // Guardar Hora de fin de cita
+                    cm.Parameters.Add("@HoraInicio", SqlDbType.VarChar).Value = CMBHoraInicio_Hora.Text + " " + CMBHoraInicio_AMPM.Text; // Guardar Hora de inicio de cita
+                    cm.Parameters.Add("@HoraFin", SqlDbType.VarChar).Value = CMBHoraFin_Hora.Text + " " + CMBHoraFin_AMPM.Text; // Guardar Hora de fin de cita
                     cm.Parameters.Add("@Cancelacion", SqlDbType.Bit).Value = CBCancelacion.Checked; // En caso de cancelacion de cita, se modifica por el checkbox
                     cm.Parameters.Add("@idCliente", SqlDbType.Int).Value = CMBCliente.SelectedValue; // Guardar al cliente que agendo la cita
+                    cm.Parameters.Add("@Tratamiento", SqlDbType.VarChar).Value = txtTratamiento.Text;
 
                     cm.ExecuteNonQuery();
                     cm.Parameters.Clear();
@@ -223,8 +226,22 @@ namespace Estetica_Rossy
 
 
 
+
         #endregion
 
+        private void dGCitas_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SeleccionarDatos();
+        }
 
+        private void SeleccionarDatos()
+        {
+            IdCliente = dGCitas.SelectedRows[0].Cells[0].Value.ToString();
+            Nombre = dGCitas.SelectedRows[0].Cells[1].Value.ToString();
+            Fecha = dGCitas.SelectedRows[0].Cells[2].Value.ToString();
+            Hora = dGCitas.SelectedRows[0].Cells[3].Value.ToString();
+            Tratamiento = dGCitas.SelectedRows[0].Cells[4].Value.ToString();
+
+        }
     }
 }
