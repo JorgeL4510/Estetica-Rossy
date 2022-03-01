@@ -46,13 +46,10 @@ namespace Estetica_Rossy
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblClientes = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.lblEdad = new System.Windows.Forms.Label();
-            this.nUDEdad = new System.Windows.Forms.NumericUpDown();
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDEdad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,7 +142,7 @@ namespace Estetica_Rossy
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(131, 386);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(658, 30);
@@ -222,30 +219,6 @@ namespace Estetica_Rossy
             this.txtTelefono.Size = new System.Drawing.Size(243, 30);
             this.txtTelefono.TabIndex = 36;
             // 
-            // lblEdad
-            // 
-            this.lblEdad.AutoSize = true;
-            this.lblEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEdad.Location = new System.Drawing.Point(23, 327);
-            this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(62, 25);
-            this.lblEdad.TabIndex = 38;
-            this.lblEdad.Text = "Edad";
-            // 
-            // nUDEdad
-            // 
-            this.nUDEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nUDEdad.Location = new System.Drawing.Point(163, 326);
-            this.nUDEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nUDEdad.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.nUDEdad.Name = "nUDEdad";
-            this.nUDEdad.Size = new System.Drawing.Size(243, 30);
-            this.nUDEdad.TabIndex = 41;
-            // 
             // ImgActualiar
             // 
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -266,10 +239,8 @@ namespace Estetica_Rossy
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(804, 716);
             this.Controls.Add(this.ImgActualiar);
-            this.Controls.Add(this.nUDEdad);
             this.Controls.Add(this.lblClientes);
             this.Controls.Add(this.lblTratamiento);
-            this.Controls.Add(this.lblEdad);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtNombreCliente);
@@ -289,7 +260,6 @@ namespace Estetica_Rossy
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDEdad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,8 +281,6 @@ namespace Estetica_Rossy
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Label lblClientes;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Label lblEdad;
-        private System.Windows.Forms.NumericUpDown nUDEdad;
         private System.Windows.Forms.PictureBox ImgActualiar;
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.Label lblCargo;

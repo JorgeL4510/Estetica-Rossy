@@ -77,8 +77,7 @@ namespace Estetica_Rossy
         private void LimpiarCampos()
         {
             this.txtNombreCliente.Text = string.Empty;
-            this.txtTelefono.Text = string.Empty;
-            this.nUDEdad.Value = 0;
+            this.txtTelefono.Text = string.Empty;            
         }
 
         private void Buscar()
@@ -112,7 +111,7 @@ namespace Estetica_Rossy
 
         private void añadirClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txtNombreCliente.Text == "" || txtTelefono.Text == "" || nUDEdad.Value == 0)
+            if (txtNombreCliente.Text == "" || txtTelefono.Text == "")
             {
                 MessageBox.Show("Datos ingresados incorrectamente");
             }
@@ -121,13 +120,12 @@ namespace Estetica_Rossy
                 try
                 {
                     //Guardar info del cliente
-                    //(Nombre, Telefono, Edad)
+                    //(Nombre, Telefono)
                     cm = new SqlCommand("AgregarCliente", DB_CONN.DB_CONN);
                     cm.CommandType = CommandType.StoredProcedure;
 
                     cm.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = txtNombreCliente.Text; //Guardar el nombre del cliente
-                    cm.Parameters.Add("@Telefono", SqlDbType.Int).Value = Convert.ToInt32(txtTelefono.Text); //Guardar el telefono del cliente en caso de necesitar comunicación
-                    cm.Parameters.Add("@Edad", SqlDbType.Int).Value = nUDEdad.Value; //Guardar edad del cliente
+                    cm.Parameters.Add("@Telefono", SqlDbType.Int).Value = Convert.ToInt32(txtTelefono.Text); //Guardar el telefono del cliente en caso de necesitar comunicación                    
 
                     cm.ExecuteNonQuery();
                     cm.Parameters.Clear();
