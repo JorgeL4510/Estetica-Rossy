@@ -47,21 +47,23 @@ namespace Estetica_Rossy
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCitas = new System.Windows.Forms.Label();
-            this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.dTPBuscar = new System.Windows.Forms.DateTimePicker();
-            this.CMBHoraInicio_Hora = new System.Windows.Forms.ComboBox();
             this.lblHoraInicio = new System.Windows.Forms.Label();
             this.CBCancelacion = new System.Windows.Forms.CheckBox();
-            this.CMBHoraInicio_AMPM = new System.Windows.Forms.ComboBox();
             this.txtTratamiento = new System.Windows.Forms.TextBox();
             this.lblTratamiento = new System.Windows.Forms.Label();
-            this.CMBHoraFin_AMPM = new System.Windows.Forms.ComboBox();
-            this.CMBHoraFin_Hora = new System.Windows.Forms.ComboBox();
-            this.lblHoraFin = new System.Windows.Forms.Label();
+            this.ImgActualiar = new System.Windows.Forms.PictureBox();
+            this.ImgCancelar = new System.Windows.Forms.PictureBox();
+            this.txtHoraInicio = new System.Windows.Forms.TextBox();
+            this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasDeHoyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasCanceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todasLasCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             this.SuspendLayout();
             // 
             // dGCitas
@@ -71,13 +73,15 @@ namespace Estetica_Rossy
             this.dGCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGCitas.Location = new System.Drawing.Point(8, 466);
             this.dGCitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dGCitas.MultiSelect = false;
             this.dGCitas.Name = "dGCitas";
             this.dGCitas.ReadOnly = true;
             this.dGCitas.RowHeadersWidth = 51;
             this.dGCitas.RowTemplate.Height = 24;
+            this.dGCitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGCitas.Size = new System.Drawing.Size(885, 318);
             this.dGCitas.TabIndex = 0;
-            this.dGCitas.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGCitas_RowHeaderMouseDoubleClick);
+            this.dGCitas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGCitas_CellDoubleClick);
             // 
             // lblBuscar
             // 
@@ -94,7 +98,7 @@ namespace Estetica_Rossy
             // 
             this.lblEsteticaRossy.AutoSize = true;
             this.lblEsteticaRossy.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEsteticaRossy.Location = new System.Drawing.Point(291, 18);
+            this.lblEsteticaRossy.Location = new System.Drawing.Point(298, 18);
             this.lblEsteticaRossy.Name = "lblEsteticaRossy";
             this.lblEsteticaRossy.Size = new System.Drawing.Size(309, 51);
             this.lblEsteticaRossy.TabIndex = 26;
@@ -124,7 +128,7 @@ namespace Estetica_Rossy
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(15, 241);
+            this.lblFecha.Location = new System.Drawing.Point(16, 246);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(72, 25);
             this.lblFecha.TabIndex = 31;
@@ -190,7 +194,8 @@ namespace Estetica_Rossy
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.añadirCitaToolStripMenuItem,
             this.modificarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
+            this.eliminarToolStripMenuItem,
+            this.mostrarToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -198,21 +203,23 @@ namespace Estetica_Rossy
             // añadirCitaToolStripMenuItem
             // 
             this.añadirCitaToolStripMenuItem.Name = "añadirCitaToolStripMenuItem";
-            this.añadirCitaToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.añadirCitaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirCitaToolStripMenuItem.Text = "Añadir Cita";
             this.añadirCitaToolStripMenuItem.Click += new System.EventHandler(this.añadirCitaToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
-            this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem.Text = "Modificar datos";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarToolStripMenuItem.Text = "Eliminar cita";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -238,6 +245,56 @@ namespace Estetica_Rossy
             this.lblCitas.TabIndex = 40;
             this.lblCitas.Text = "Citas";
             // 
+            // dTPBuscar
+            // 
+            this.dTPBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dTPBuscar.Location = new System.Drawing.Point(131, 415);
+            this.dTPBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dTPBuscar.Name = "dTPBuscar";
+            this.dTPBuscar.Size = new System.Drawing.Size(762, 30);
+            this.dTPBuscar.TabIndex = 42;
+            this.dTPBuscar.ValueChanged += new System.EventHandler(this.dTPBuscar_ValueChanged);
+            // 
+            // lblHoraInicio
+            // 
+            this.lblHoraInicio.AutoSize = true;
+            this.lblHoraInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoraInicio.Location = new System.Drawing.Point(561, 309);
+            this.lblHoraInicio.Name = "lblHoraInicio";
+            this.lblHoraInicio.Size = new System.Drawing.Size(115, 25);
+            this.lblHoraInicio.TabIndex = 44;
+            this.lblHoraInicio.Text = "Hora Inicio";
+            // 
+            // CBCancelacion
+            // 
+            this.CBCancelacion.AutoSize = true;
+            this.CBCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBCancelacion.Location = new System.Drawing.Point(21, 361);
+            this.CBCancelacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CBCancelacion.Name = "CBCancelacion";
+            this.CBCancelacion.Size = new System.Drawing.Size(151, 33);
+            this.CBCancelacion.TabIndex = 46;
+            this.CBCancelacion.Text = "Cancelado";
+            this.CBCancelacion.UseVisualStyleBackColor = true;
+            // 
+            // txtTratamiento
+            // 
+            this.txtTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTratamiento.Location = new System.Drawing.Point(149, 303);
+            this.txtTratamiento.Name = "txtTratamiento";
+            this.txtTratamiento.Size = new System.Drawing.Size(385, 30);
+            this.txtTratamiento.TabIndex = 47;
+            // 
+            // lblTratamiento
+            // 
+            this.lblTratamiento.AutoSize = true;
+            this.lblTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTratamiento.Location = new System.Drawing.Point(12, 306);
+            this.lblTratamiento.Name = "lblTratamiento";
+            this.lblTratamiento.Size = new System.Drawing.Size(127, 25);
+            this.lblTratamiento.TabIndex = 31;
+            this.lblTratamiento.Text = "Tratamiento";
+            // 
             // ImgActualiar
             // 
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -251,111 +308,57 @@ namespace Estetica_Rossy
             this.ImgActualiar.TabStop = false;
             this.ImgActualiar.Click += new System.EventHandler(this.ImgActualiar_Click);
             // 
-            // dTPBuscar
+            // ImgCancelar
             // 
-            this.dTPBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dTPBuscar.Location = new System.Drawing.Point(131, 415);
-            this.dTPBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dTPBuscar.Name = "dTPBuscar";
-            this.dTPBuscar.Size = new System.Drawing.Size(762, 30);
-            this.dTPBuscar.TabIndex = 42;
-            this.dTPBuscar.ValueChanged += new System.EventHandler(this.dTPBuscar_ValueChanged);
+            this.ImgCancelar.Image = global::Estetica_Rossy.Properties.Resources.cancelar;
+            this.ImgCancelar.Location = new System.Drawing.Point(789, 190);
+            this.ImgCancelar.Name = "ImgCancelar";
+            this.ImgCancelar.Size = new System.Drawing.Size(42, 42);
+            this.ImgCancelar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImgCancelar.TabIndex = 48;
+            this.ImgCancelar.TabStop = false;
+            this.ImgCancelar.Click += new System.EventHandler(this.ImgCancelar_Click);
             // 
-            // CMBHoraInicio_Hora
+            // txtHoraInicio
             // 
-            this.CMBHoraInicio_Hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraInicio_Hora.FormattingEnabled = true;
-            this.CMBHoraInicio_Hora.Location = new System.Drawing.Point(675, 301);
-            this.CMBHoraInicio_Hora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraInicio_Hora.Name = "CMBHoraInicio_Hora";
-            this.CMBHoraInicio_Hora.Size = new System.Drawing.Size(115, 33);
-            this.CMBHoraInicio_Hora.TabIndex = 45;
+            this.txtHoraInicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtHoraInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoraInicio.Location = new System.Drawing.Point(710, 306);
+            this.txtHoraInicio.MaxLength = 10;
+            this.txtHoraInicio.Name = "txtHoraInicio";
+            this.txtHoraInicio.Size = new System.Drawing.Size(183, 30);
+            this.txtHoraInicio.TabIndex = 47;
             // 
-            // lblHoraInicio
+            // mostrarToolStripMenuItem
             // 
-            this.lblHoraInicio.AutoSize = true;
-            this.lblHoraInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraInicio.Location = new System.Drawing.Point(542, 311);
-            this.lblHoraInicio.Name = "lblHoraInicio";
-            this.lblHoraInicio.Size = new System.Drawing.Size(115, 25);
-            this.lblHoraInicio.TabIndex = 44;
-            this.lblHoraInicio.Text = "Hora Inicio";
+            this.mostrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.citasDeHoyToolStripMenuItem,
+            this.citasCanceladasToolStripMenuItem,
+            this.todasLasCitasToolStripMenuItem});
+            this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mostrarToolStripMenuItem.Text = "Mostrar...";
             // 
-            // CBCancelacion
+            // citasDeHoyToolStripMenuItem
             // 
-            this.CBCancelacion.AutoSize = true;
-            this.CBCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBCancelacion.Location = new System.Drawing.Point(20, 300);
-            this.CBCancelacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CBCancelacion.Name = "CBCancelacion";
-            this.CBCancelacion.Size = new System.Drawing.Size(151, 33);
-            this.CBCancelacion.TabIndex = 46;
-            this.CBCancelacion.Text = "Cancelado";
-            this.CBCancelacion.UseVisualStyleBackColor = true;
+            this.citasDeHoyToolStripMenuItem.Name = "citasDeHoyToolStripMenuItem";
+            this.citasDeHoyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.citasDeHoyToolStripMenuItem.Text = "Citas de hoy";
+            this.citasDeHoyToolStripMenuItem.Click += new System.EventHandler(this.citasDeHoyToolStripMenuItem_Click);
             // 
-            // CMBHoraInicio_AMPM
+            // citasCanceladasToolStripMenuItem
             // 
-            this.CMBHoraInicio_AMPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraInicio_AMPM.FormattingEnabled = true;
-            this.CMBHoraInicio_AMPM.Items.AddRange(new object[] {
-            "AM",
-            "PM"});
-            this.CMBHoraInicio_AMPM.Location = new System.Drawing.Point(796, 303);
-            this.CMBHoraInicio_AMPM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraInicio_AMPM.Name = "CMBHoraInicio_AMPM";
-            this.CMBHoraInicio_AMPM.Size = new System.Drawing.Size(97, 33);
-            this.CMBHoraInicio_AMPM.TabIndex = 45;
+            this.citasCanceladasToolStripMenuItem.Name = "citasCanceladasToolStripMenuItem";
+            this.citasCanceladasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.citasCanceladasToolStripMenuItem.Text = "Citas canceladas";
+            this.citasCanceladasToolStripMenuItem.Click += new System.EventHandler(this.citasCanceladasToolStripMenuItem_Click);
             // 
-            // txtTratamiento
+            // todasLasCitasToolStripMenuItem
             // 
-            this.txtTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTratamiento.Location = new System.Drawing.Point(17, 363);
-            this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(385, 30);
-            this.txtTratamiento.TabIndex = 47;
-            // 
-            // lblTratamiento
-            // 
-            this.lblTratamiento.AutoSize = true;
-            this.lblTratamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTratamiento.Location = new System.Drawing.Point(16, 335);
-            this.lblTratamiento.Name = "lblTratamiento";
-            this.lblTratamiento.Size = new System.Drawing.Size(127, 25);
-            this.lblTratamiento.TabIndex = 31;
-            this.lblTratamiento.Text = "Tratamiento";
-            // 
-            // CMBHoraFin_AMPM
-            // 
-            this.CMBHoraFin_AMPM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraFin_AMPM.FormattingEnabled = true;
-            this.CMBHoraFin_AMPM.Items.AddRange(new object[] {
-            "AM",
-            "PM"});
-            this.CMBHoraFin_AMPM.Location = new System.Drawing.Point(796, 362);
-            this.CMBHoraFin_AMPM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraFin_AMPM.Name = "CMBHoraFin_AMPM";
-            this.CMBHoraFin_AMPM.Size = new System.Drawing.Size(97, 33);
-            this.CMBHoraFin_AMPM.TabIndex = 37;
-            // 
-            // CMBHoraFin_Hora
-            // 
-            this.CMBHoraFin_Hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CMBHoraFin_Hora.FormattingEnabled = true;
-            this.CMBHoraFin_Hora.Location = new System.Drawing.Point(675, 360);
-            this.CMBHoraFin_Hora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CMBHoraFin_Hora.Name = "CMBHoraFin_Hora";
-            this.CMBHoraFin_Hora.Size = new System.Drawing.Size(115, 33);
-            this.CMBHoraFin_Hora.TabIndex = 37;
-            // 
-            // lblHoraFin
-            // 
-            this.lblHoraFin.AutoSize = true;
-            this.lblHoraFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraFin.Location = new System.Drawing.Point(566, 364);
-            this.lblHoraFin.Name = "lblHoraFin";
-            this.lblHoraFin.Size = new System.Drawing.Size(94, 25);
-            this.lblHoraFin.TabIndex = 34;
-            this.lblHoraFin.Text = "Hora Fin";
+            this.todasLasCitasToolStripMenuItem.Name = "todasLasCitasToolStripMenuItem";
+            this.todasLasCitasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.todasLasCitasToolStripMenuItem.Text = "Todas las citas";
+            this.todasLasCitasToolStripMenuItem.Click += new System.EventHandler(this.todasLasCitasToolStripMenuItem_Click);
             // 
             // Citas
             // 
@@ -363,18 +366,15 @@ namespace Estetica_Rossy
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(909, 795);
+            this.Controls.Add(this.ImgCancelar);
+            this.Controls.Add(this.txtHoraInicio);
             this.Controls.Add(this.txtTratamiento);
             this.Controls.Add(this.CBCancelacion);
-            this.Controls.Add(this.CMBHoraInicio_AMPM);
-            this.Controls.Add(this.CMBHoraInicio_Hora);
             this.Controls.Add(this.lblHoraInicio);
             this.Controls.Add(this.dTPBuscar);
             this.Controls.Add(this.ImgActualiar);
             this.Controls.Add(this.lblCitas);
-            this.Controls.Add(this.CMBHoraFin_Hora);
-            this.Controls.Add(this.CMBHoraFin_AMPM);
             this.Controls.Add(this.dTFechaCita);
-            this.Controls.Add(this.lblHoraFin);
             this.Controls.Add(this.lblTratamiento);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblCliente);
@@ -395,6 +395,7 @@ namespace Estetica_Rossy
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,14 +423,15 @@ namespace Estetica_Rossy
         private System.Windows.Forms.DateTimePicker dTPBuscar;
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.ComboBox CMBHoraInicio_Hora;
         private System.Windows.Forms.Label lblHoraInicio;
         private System.Windows.Forms.CheckBox CBCancelacion;
-        private System.Windows.Forms.ComboBox CMBHoraInicio_AMPM;
         private System.Windows.Forms.TextBox txtTratamiento;
         private System.Windows.Forms.Label lblTratamiento;
-        private System.Windows.Forms.ComboBox CMBHoraFin_AMPM;
-        private System.Windows.Forms.ComboBox CMBHoraFin_Hora;
-        private System.Windows.Forms.Label lblHoraFin;
+        private System.Windows.Forms.PictureBox ImgCancelar;
+        private System.Windows.Forms.TextBox txtHoraInicio;
+        private System.Windows.Forms.ToolStripMenuItem mostrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem citasDeHoyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem citasCanceladasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem todasLasCitasToolStripMenuItem;
     }
 }

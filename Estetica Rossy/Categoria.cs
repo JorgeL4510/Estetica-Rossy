@@ -30,23 +30,6 @@ namespace Estetica_Rossy
             return dt;
         }
 
-        public DataTable CargarCombo_DatosHoras()
-        {
-            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Horas", cn.LeerCadena());
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        public DataTable CargarCombo_DatosMinutos()
-        {
-            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Minutos", cn.LeerCadena());
-            da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
 
         public DataTable CargarCombo_DatosMarcas()
         {

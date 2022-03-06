@@ -32,6 +32,7 @@ namespace Estetica_Rossy
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblEsteticaRossy = new System.Windows.Forms.Label();
@@ -46,10 +47,13 @@ namespace Estetica_Rossy
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblClientes = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.ImgCancelar = new System.Windows.Forms.PictureBox();
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
+            this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,14 +67,16 @@ namespace Estetica_Rossy
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(804, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(603, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // opcionesToolStripMenuItem
             // 
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirClienteToolStripMenuItem});
+            this.añadirClienteToolStripMenuItem,
+            this.actualizarDatosToolStripMenuItem,
+            this.eliminarClienteToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -78,9 +84,16 @@ namespace Estetica_Rossy
             // añadirClienteToolStripMenuItem
             // 
             this.añadirClienteToolStripMenuItem.Name = "añadirClienteToolStripMenuItem";
-            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
             this.añadirClienteToolStripMenuItem.Text = "Añadir Cliente";
             this.añadirClienteToolStripMenuItem.Click += new System.EventHandler(this.añadirClienteToolStripMenuItem_Click);
+            // 
+            // actualizarDatosToolStripMenuItem
+            // 
+            this.actualizarDatosToolStripMenuItem.Name = "actualizarDatosToolStripMenuItem";
+            this.actualizarDatosToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.actualizarDatosToolStripMenuItem.Text = "Actualizar datos";
+            this.actualizarDatosToolStripMenuItem.Click += new System.EventHandler(this.actualizarDatosToolStripMenuItem_Click);
             // 
             // inicioCitasToolStripMenuItem
             // 
@@ -100,7 +113,7 @@ namespace Estetica_Rossy
             // 
             this.lblEsteticaRossy.AutoSize = true;
             this.lblEsteticaRossy.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEsteticaRossy.Location = new System.Drawing.Point(249, 23);
+            this.lblEsteticaRossy.Location = new System.Drawing.Point(157, 11);
             this.lblEsteticaRossy.Name = "lblEsteticaRossy";
             this.lblEsteticaRossy.Size = new System.Drawing.Size(309, 51);
             this.lblEsteticaRossy.TabIndex = 27;
@@ -141,11 +154,11 @@ namespace Estetica_Rossy
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(131, 386);
+            this.txtBuscar.Location = new System.Drawing.Point(119, 378);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(658, 30);
+            this.txtBuscar.Size = new System.Drawing.Size(471, 30);
             this.txtBuscar.TabIndex = 28;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -153,7 +166,7 @@ namespace Estetica_Rossy
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(23, 389);
+            this.lblBuscar.Location = new System.Drawing.Point(13, 381);
             this.lblBuscar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(87, 29);
@@ -162,14 +175,20 @@ namespace Estetica_Rossy
             // 
             // dGClientes
             // 
+            this.dGClientes.AllowUserToAddRows = false;
+            this.dGClientes.AllowUserToDeleteRows = false;
             this.dGClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGClientes.Location = new System.Drawing.Point(11, 423);
+            this.dGClientes.Location = new System.Drawing.Point(10, 425);
             this.dGClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dGClientes.MultiSelect = false;
             this.dGClientes.Name = "dGClientes";
+            this.dGClientes.ReadOnly = true;
             this.dGClientes.RowHeadersWidth = 51;
             this.dGClientes.RowTemplate.Height = 24;
-            this.dGClientes.Size = new System.Drawing.Size(779, 277);
+            this.dGClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGClientes.Size = new System.Drawing.Size(580, 405);
             this.dGClientes.TabIndex = 26;
+            this.dGClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGClientes_CellDoubleClick);
             // 
             // lblTratamiento
             // 
@@ -185,7 +204,7 @@ namespace Estetica_Rossy
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(437, 271);
+            this.lblTelefono.Location = new System.Drawing.Point(23, 328);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(97, 25);
             this.lblTelefono.TabIndex = 38;
@@ -194,10 +213,10 @@ namespace Estetica_Rossy
             // txtNombreCliente
             // 
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(163, 271);
+            this.txtNombreCliente.Location = new System.Drawing.Point(130, 271);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(243, 30);
+            this.txtNombreCliente.Size = new System.Drawing.Size(285, 30);
             this.txtNombreCliente.TabIndex = 36;
             // 
             // lblClientes
@@ -213,17 +232,28 @@ namespace Estetica_Rossy
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(549, 266);
+            this.txtTelefono.Location = new System.Drawing.Point(130, 323);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(243, 30);
+            this.txtTelefono.Size = new System.Drawing.Size(285, 30);
             this.txtTelefono.TabIndex = 36;
+            // 
+            // ImgCancelar
+            // 
+            this.ImgCancelar.Image = global::Estetica_Rossy.Properties.Resources.cancelar;
+            this.ImgCancelar.Location = new System.Drawing.Point(486, 199);
+            this.ImgCancelar.Name = "ImgCancelar";
+            this.ImgCancelar.Size = new System.Drawing.Size(42, 42);
+            this.ImgCancelar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImgCancelar.TabIndex = 43;
+            this.ImgCancelar.TabStop = false;
+            this.ImgCancelar.Click += new System.EventHandler(this.ImgCancelar_Click);
             // 
             // ImgActualiar
             // 
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
-            this.ImgActualiar.Location = new System.Drawing.Point(744, 194);
+            this.ImgActualiar.Location = new System.Drawing.Point(545, 197);
             this.ImgActualiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ImgActualiar.Name = "ImgActualiar";
             this.ImgActualiar.Size = new System.Drawing.Size(45, 44);
@@ -232,12 +262,20 @@ namespace Estetica_Rossy
             this.ImgActualiar.TabStop = false;
             this.ImgActualiar.Click += new System.EventHandler(this.ImgActualiar_Click);
             // 
+            // eliminarClienteToolStripMenuItem
+            // 
+            this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
+            this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarClienteToolStripMenuItem.Text = "Eliminar Cliente";
+            this.eliminarClienteToolStripMenuItem.Click += new System.EventHandler(this.eliminarClienteToolStripMenuItem_Click);
+            // 
             // Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(804, 716);
+            this.ClientSize = new System.Drawing.Size(603, 841);
+            this.Controls.Add(this.ImgCancelar);
             this.Controls.Add(this.ImgActualiar);
             this.Controls.Add(this.lblClientes);
             this.Controls.Add(this.lblTratamiento);
@@ -260,6 +298,7 @@ namespace Estetica_Rossy
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -286,5 +325,8 @@ namespace Estetica_Rossy
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ToolStripMenuItem añadirClienteToolStripMenuItem;
+        private System.Windows.Forms.PictureBox ImgCancelar;
+        private System.Windows.Forms.ToolStripMenuItem actualizarDatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
     }
 }

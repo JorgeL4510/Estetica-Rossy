@@ -36,6 +36,15 @@ namespace Estetica_Rossy
         DataTable dt;
 
         Categoria cat = new Categoria();
+       
+        int IdProducto = 0;
+        string NombreProducto;
+        int IdMarca;
+        decimal Costo;
+        decimal Precio;
+        int stock;
+        int IdProveedor;
+
 
         public DataTable GetData(string consulta)
         {
@@ -66,12 +75,32 @@ namespace Estetica_Rossy
 
         #endregion
 
-        private void ImgActualiar_Click(object sender, EventArgs e)
+        //Metodos
+        #region
+
+        private void Buscar()
         {
-            dGInventario.DataSource = GetData("MostrarProductos");
+            try
+            {
+                cm = new SqlCommand("Buscar_Producto", DB_CONN.DB_CONN);
+                cm.CommandType = CommandType.StoredProcedure;
+                cm.Parameters.Add("@NombreP", SqlDbType.VarChar).Value = txtBuscar.Text;
+
+                cm.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cm);
+                da.Fill(dt);
+                dGInventario.DataSource = dt;
+                dGInventario.Columns["IdProducto"].Visible = false;
+                dGInventario.Columns["IdMarca"].Visible = false;
+                dGInventario.Columns["IdProveedor"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error " + ex.Message);
+            }
         }
-
-
+        
         private void CargarComboBox()
         {
             try
@@ -90,31 +119,13 @@ namespace Estetica_Rossy
             }
         }
 
-        private void Buscar()
-        {
-            try
-            {
-                cm = new SqlCommand("Buscar_Producto", DB_CONN.DB_CONN);
-                cm.CommandType = CommandType.StoredProcedure;
-                cm.Parameters.Add("@NombreP", SqlDbType.VarChar).Value = txtBuscar.Text;
-
-                cm.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cm);
-                da.Fill(dt);
-                dGInventario.DataSource = dt;             
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido un error " + ex.Message);
-            }
-        }
-
         private void LlenarGrid()
         {
             dGInventario.DataSource = GetData("MostrarProductos");
+            dGInventario.Columns["IdProducto"].Visible = false;
+            dGInventario.Columns["IdMarca"].Visible = false;
+            dGInventario.Columns["IdProveedor"].Visible = false;
         }
-
 
         private void LimpiarCampos()
         {
@@ -123,9 +134,43 @@ namespace Estetica_Rossy
             this.NUDCosto.Value = 0;
             this.NUDPrecio.Value = 0;
             this.CMBMarca.SelectedIndex = 0;
-            this.CMBProveedor.SelectedIndex = 0;            
+            this.CMBProveedor.SelectedIndex = 0;
         }
 
+
+        private void SeleccionarDatos()
+        {//(IdProducto, IdMarca, IdProveedor, NombreP, IdMarca, Costo, Precio, Inventario, idProveedor)
+
+            IdProducto = (int)dGInventario.SelectedRows[0].Cells[0].Value;
+            IdMarca = (int)dGInventario.SelectedRows[0].Cells[1].Value;
+            IdProveedor = (int)dGInventario.SelectedRows[0].Cells[2].Value;
+
+            NombreProducto = dGInventario.SelectedRows[0].Cells[3].Value.ToString();
+            //Marca = (int)dGInventario.SelectedRows[0].Cells[4].Value;
+            Costo = (decimal)dGInventario.SelectedRows[0].Cells[5].Value;
+            Precio = (decimal)dGInventario.SelectedRows[0].Cells[6].Value;
+            stock = (int)dGInventario.SelectedRows[0].Cells[7].Value;
+            //Proveedor = (int)dGInventario.SelectedRows[0].Cells[8].Value;
+
+            this.txtNombreP.Text = NombreProducto;
+            this.CMBMarca.SelectedValue = IdMarca;
+            this.NUDCosto.Value = (int)Costo;
+            this.NUDPrecio.Value = (int)Precio;
+            this.NUDCantidad.Value = (int)stock;
+            this.CMBProveedor.SelectedValue = IdProveedor;
+
+            añadirProductoToolStripMenuItem.Enabled = false;
+        }
+
+        #endregion
+
+        //Funciones Pantalla
+        #region
+
+        private void ImgActualiar_Click(object sender, EventArgs e)
+        {
+            dGInventario.DataSource = GetData("MostrarProductos");
+        }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -143,7 +188,7 @@ namespace Estetica_Rossy
                 try
                 {
                     //Guardar info del producto
-                    //(NombreP, IdMarca, Costo, Precio, Inventario, idProveedor)
+                    //(IdProducto, NombreP, IdMarca, Costo, Precio, Inventario, idProveedor)
                     cm = new SqlCommand("AgregarProducto", DB_CONN.DB_CONN);
                     cm.CommandType = CommandType.StoredProcedure;
 
@@ -168,7 +213,44 @@ namespace Estetica_Rossy
             }
         }
 
+        private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro de querer actualizar el producto?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
 
+            }
+            else { }
+        }
+
+        private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro de querer eliminar el producto?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+            }
+            else { }
+        }
+
+
+
+
+
+
+        #endregion
+
+        private void dGInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SeleccionarDatos();
+        }
+
+        private void ImgCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            añadirProductoToolStripMenuItem.Enabled = true;
+            IdProducto = 0;
+            IdMarca = 0;
+            IdProveedor = 0;
+        }
 
 
     }
