@@ -42,7 +42,7 @@ namespace Estetica_Rossy
         int IdMarca;
         decimal Costo;
         decimal Precio;
-        int stock;
+        int Cantidad;
         int IdProveedor;
 
 
@@ -149,14 +149,14 @@ namespace Estetica_Rossy
             //Marca = (int)dGInventario.SelectedRows[0].Cells[4].Value;
             Costo = (decimal)dGInventario.SelectedRows[0].Cells[5].Value;
             Precio = (decimal)dGInventario.SelectedRows[0].Cells[6].Value;
-            stock = (int)dGInventario.SelectedRows[0].Cells[7].Value;
+            Cantidad = (int)dGInventario.SelectedRows[0].Cells[7].Value;
             //Proveedor = (int)dGInventario.SelectedRows[0].Cells[8].Value;
 
             this.txtNombreP.Text = NombreProducto;
             this.CMBMarca.SelectedValue = IdMarca;
             this.NUDCosto.Value = (int)Costo;
             this.NUDPrecio.Value = (int)Precio;
-            this.NUDCantidad.Value = (int)stock;
+            this.NUDCantidad.Value = (int)Cantidad;
             this.CMBProveedor.SelectedValue = IdProveedor;
 
             añadirProductoToolStripMenuItem.Enabled = false;
@@ -179,7 +179,7 @@ namespace Estetica_Rossy
 
         private void añadirProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txtNombreP.Text == "" || NUDCosto.Value == 0)
+            if (txtNombreP.Text == ""  ||NUDCosto.Value == 0)
             {
                 MessageBox.Show("Datos ingresados incorrectamente");
             }
@@ -217,24 +217,84 @@ namespace Estetica_Rossy
         {
             if (MessageBox.Show("¿Esta seguro de querer actualizar el producto?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                if (txtNombreP.Text == "" || NUDCosto.Value == 0 || IdProducto == 0)
+                {
+                    MessageBox.Show("Datos ingresados incorrectamente");
+                }
+                else
+                {
+                    try
+                    {
+                        //(IdProducto, NombreP, IdMarca, Costo, Precio, Inventario, IdProveedor)
+                        cm = new SqlCommand("ActualizarProducto", DB_CONN.DB_CONN);
+                        cm.CommandType = CommandType.StoredProcedure;
+                        cm.Parameters.Add("@idProducto", SqlDbType.Int).Value = IdProducto; // Enviar el Id del producto a modificar
+                        cm.Parameters.Add("@NombreP", SqlDbType.VarChar).Value = txtNombreP.Text; //Guardar el nombre del producto
+                        cm.Parameters.Add("@IdMarca", SqlDbType.Int).Value = CMBMarca.SelectedValue; //Guardar el id de la marca
+                        cm.Parameters.Add("@Costo", SqlDbType.Money).Value = NUDCosto.Value; //Guardar costo del producto
+                        cm.Parameters.Add("@Precio", SqlDbType.Money).Value = NUDPrecio.Value; //Guardar el precio del producto, en caso de venderse a los clientes
+                        cm.Parameters.Add("@Inventario", SqlDbType.Int).Value = NUDCantidad.Value; //Guardar la cantidad de inventario
+                        cm.Parameters.Add("IdProveedor", SqlDbType.Int).Value = CMBProveedor.SelectedValue; //Guardar el Id del proveedor
 
+                        cm.ExecuteNonQuery();
+                        cm.Parameters.Clear();
+                        cm.Dispose();
+                        MessageBox.Show("Los datos del producto se han actualizado correctamente");
+
+                        IdProducto = 0;                        
+                        añadirProductoToolStripMenuItem.Enabled = true;
+                        LimpiarCampos(); //Limpiar los campos
+                        LlenarGrid(); //Mostrar el registro en el Grid                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha ocurrido un error " + ex.Message);
+                    }
+                }
             }
-            else { }
+            else 
+            { 
+                
+            }
         }
 
         private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Esta seguro de querer eliminar el producto?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                if (txtNombreP.Text == "" || IdProducto == 0)
+                {
+                    MessageBox.Show("No se ha seleccionado ningún dato");
+                }
+                else
+                {
+                    try
+                    {
+                        cm = new SqlCommand("EliminarProducto", DB_CONN.DB_CONN);
+                        cm.CommandType = CommandType.StoredProcedure;
+                        cm.Parameters.Add("@idProducto", SqlDbType.Int).Value = IdProducto; // Enviar el Id del producto a eliminar
+
+                        cm.ExecuteNonQuery();
+                        cm.Parameters.Clear();
+                        cm.Dispose();
+                        MessageBox.Show("El producto se ha eliminado correctamente");
+
+                        IdProducto = 0;
+                        añadirProductoToolStripMenuItem.Enabled = true;
+                        LimpiarCampos(); //Limpiar los campos
+                        LlenarGrid(); //Mostrar el registro en el Grid                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha ocurrido un error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
 
             }
-            else { }
         }
-
-
-
-
-
 
         #endregion
 
@@ -251,7 +311,5 @@ namespace Estetica_Rossy
             IdMarca = 0;
             IdProveedor = 0;
         }
-
-
     }
 }

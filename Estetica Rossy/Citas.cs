@@ -30,7 +30,7 @@ namespace Estetica_Rossy
         {
             CargarComboBox();
             LlenarGrid();
-            dTFechaCita.MinDate = DateTime.Today;
+            //dTFechaCita.MinDate = DateTime.Today;
         }
 
         ClsConexion DB_CONN = new ClsConexion();
@@ -46,7 +46,7 @@ namespace Estetica_Rossy
         DateTime Fecha;
         string HoraInicio;
         string Tratamiento;
-        Boolean Cancelacion;
+        Boolean Cancelacion;     
 
         //Cambiar ventana
         #region
@@ -82,7 +82,7 @@ namespace Estetica_Rossy
             this.CMBCliente.SelectedIndex = 0;
             this.txtHoraInicio.Text = string.Empty;
             this.txtTratamiento.Text = string.Empty;            
-            this.dTFechaCita.Value = DateTime.Today;
+            //this.dTFechaCita.Value = DateTime.Today;
             this.CBCancelacion.Checked = false;            
         }
 
@@ -142,7 +142,7 @@ namespace Estetica_Rossy
 
         private void SeleccionarDatos()
         { //idCita, IdCliente, (Nombre)Cliente, Telefono, Fecha, HoraInicio, Tratamiento
-
+         
             IdCita = (int)dGCitas.SelectedRows[0].Cells[0].Value;
             IdCliente = (int)dGCitas.SelectedRows[0].Cells[1].Value;
             Cliente = dGCitas.SelectedRows[0].Cells[2].Value.ToString();
