@@ -51,6 +51,7 @@ namespace Estetica_Rossy
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(314, 34);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtContraseña
             // 
@@ -60,6 +61,7 @@ namespace Estetica_Rossy
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(314, 34);
             this.txtContraseña.TabIndex = 1;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // lblUsuario
             // 

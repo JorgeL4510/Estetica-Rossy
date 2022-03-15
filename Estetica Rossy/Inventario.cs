@@ -219,7 +219,7 @@ namespace Estetica_Rossy
             {
                 if (txtNombreP.Text == "" || NUDCosto.Value == 0 || IdProducto == 0)
                 {
-                    MessageBox.Show("Datos ingresados incorrectamente");
+                    MessageBox.Show("No se ha seleccionado ningún campo o los datos se han ingresado incorrectamente");
                 }
                 else
                 {
@@ -264,7 +264,7 @@ namespace Estetica_Rossy
             {
                 if (txtNombreP.Text == "" || IdProducto == 0)
                 {
-                    MessageBox.Show("No se ha seleccionado ningún dato");
+                    MessageBox.Show("No se ha seleccionado ningún campo o los datos se han ingresado incorrectamente");
                 }
                 else
                 {

@@ -15,6 +15,12 @@ namespace Estetica_Rossy
     {
         String UsuarioN;
         String CargoN;
+
+        Inicio U = new Inicio();
+        
+        
+
+
         Categoria cat = new Categoria();
         public Citas(string Usuario, string Cargo)
         {
@@ -23,6 +29,7 @@ namespace Estetica_Rossy
             CargoN = Cargo;
             lblUsuario.Text = "Usuario: " + Usuario;
             lblCargo.Text = Cargo;
+            lblPrueba.Text = U.CargoN;
         }
 
 
@@ -217,7 +224,7 @@ namespace Estetica_Rossy
             {
                 if (dTFechaCita.Value < DateTime.Today || txtHoraInicio.Text == "" || txtTratamiento.Text == "" || IdCita == 0)
                 {
-                    MessageBox.Show("Datos ingresados incorrectamente");
+                    MessageBox.Show("No se ha seleccionado ningún campo o los datos se han ingresado incorrectamente");
                 }
                 else
                 {
@@ -261,7 +268,7 @@ namespace Estetica_Rossy
             {
                 if (Condiciones() || IdCita == 0)
                 {
-                    MessageBox.Show("Datos ingresados incorrectamente");
+                    MessageBox.Show("No se ha seleccionado ningún campo o los datos se han ingresado incorrectamente");
                 }
                 else
                 {

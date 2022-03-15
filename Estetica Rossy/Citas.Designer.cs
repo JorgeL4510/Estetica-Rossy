@@ -44,6 +44,10 @@ namespace Estetica_Rossy
             this.añadirCitaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasDeHoyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasCanceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todasLasCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCitas = new System.Windows.Forms.Label();
@@ -55,10 +59,9 @@ namespace Estetica_Rossy
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
             this.txtHoraInicio = new System.Windows.Forms.TextBox();
-            this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.citasDeHoyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.citasCanceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.todasLasCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasDeHoyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasDeLaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -149,7 +152,7 @@ namespace Estetica_Rossy
             this.panel1.Controls.Add(this.lblCargo);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Controls.Add(this.lblEsteticaRossy);
-            this.panel1.Location = new System.Drawing.Point(3, 31);
+            this.panel1.Location = new System.Drawing.Point(1, 30);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(908, 143);
@@ -195,7 +198,8 @@ namespace Estetica_Rossy
             this.añadirCitaToolStripMenuItem,
             this.modificarToolStripMenuItem,
             this.eliminarToolStripMenuItem,
-            this.mostrarToolStripMenuItem});
+            this.mostrarToolStripMenuItem,
+            this.imprimirCitasToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -220,6 +224,37 @@ namespace Estetica_Rossy
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar cita";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // mostrarToolStripMenuItem
+            // 
+            this.mostrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.citasDeHoyToolStripMenuItem,
+            this.citasCanceladasToolStripMenuItem,
+            this.todasLasCitasToolStripMenuItem});
+            this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mostrarToolStripMenuItem.Text = "Mostrar...";
+            // 
+            // citasDeHoyToolStripMenuItem
+            // 
+            this.citasDeHoyToolStripMenuItem.Name = "citasDeHoyToolStripMenuItem";
+            this.citasDeHoyToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.citasDeHoyToolStripMenuItem.Text = "Citas de hoy";
+            this.citasDeHoyToolStripMenuItem.Click += new System.EventHandler(this.citasDeHoyToolStripMenuItem_Click);
+            // 
+            // citasCanceladasToolStripMenuItem
+            // 
+            this.citasCanceladasToolStripMenuItem.Name = "citasCanceladasToolStripMenuItem";
+            this.citasCanceladasToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.citasCanceladasToolStripMenuItem.Text = "Citas canceladas";
+            this.citasCanceladasToolStripMenuItem.Click += new System.EventHandler(this.citasCanceladasToolStripMenuItem_Click);
+            // 
+            // todasLasCitasToolStripMenuItem
+            // 
+            this.todasLasCitasToolStripMenuItem.Name = "todasLasCitasToolStripMenuItem";
+            this.todasLasCitasToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.todasLasCitasToolStripMenuItem.Text = "Todas las citas";
+            this.todasLasCitasToolStripMenuItem.Click += new System.EventHandler(this.todasLasCitasToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -329,36 +364,26 @@ namespace Estetica_Rossy
             this.txtHoraInicio.Size = new System.Drawing.Size(183, 30);
             this.txtHoraInicio.TabIndex = 47;
             // 
-            // mostrarToolStripMenuItem
+            // imprimirCitasToolStripMenuItem
             // 
-            this.mostrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.citasDeHoyToolStripMenuItem,
-            this.citasCanceladasToolStripMenuItem,
-            this.todasLasCitasToolStripMenuItem});
-            this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.mostrarToolStripMenuItem.Text = "Mostrar...";
+            this.imprimirCitasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.citasDeHoyToolStripMenuItem1,
+            this.citasDeLaSemanaToolStripMenuItem});
+            this.imprimirCitasToolStripMenuItem.Name = "imprimirCitasToolStripMenuItem";
+            this.imprimirCitasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.imprimirCitasToolStripMenuItem.Text = "Imprimir Citas...";
             // 
-            // citasDeHoyToolStripMenuItem
+            // citasDeHoyToolStripMenuItem1
             // 
-            this.citasDeHoyToolStripMenuItem.Name = "citasDeHoyToolStripMenuItem";
-            this.citasDeHoyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.citasDeHoyToolStripMenuItem.Text = "Citas de hoy";
-            this.citasDeHoyToolStripMenuItem.Click += new System.EventHandler(this.citasDeHoyToolStripMenuItem_Click);
+            this.citasDeHoyToolStripMenuItem1.Name = "citasDeHoyToolStripMenuItem1";
+            this.citasDeHoyToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.citasDeHoyToolStripMenuItem1.Text = "Citas de Hoy";
             // 
-            // citasCanceladasToolStripMenuItem
+            // citasDeLaSemanaToolStripMenuItem
             // 
-            this.citasCanceladasToolStripMenuItem.Name = "citasCanceladasToolStripMenuItem";
-            this.citasCanceladasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.citasCanceladasToolStripMenuItem.Text = "Citas canceladas";
-            this.citasCanceladasToolStripMenuItem.Click += new System.EventHandler(this.citasCanceladasToolStripMenuItem_Click);
-            // 
-            // todasLasCitasToolStripMenuItem
-            // 
-            this.todasLasCitasToolStripMenuItem.Name = "todasLasCitasToolStripMenuItem";
-            this.todasLasCitasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.todasLasCitasToolStripMenuItem.Text = "Todas las citas";
-            this.todasLasCitasToolStripMenuItem.Click += new System.EventHandler(this.todasLasCitasToolStripMenuItem_Click);
+            this.citasDeLaSemanaToolStripMenuItem.Name = "citasDeLaSemanaToolStripMenuItem";
+            this.citasDeLaSemanaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.citasDeLaSemanaToolStripMenuItem.Text = "Citas de la semana";
             // 
             // Citas
             // 
@@ -433,5 +458,8 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ToolStripMenuItem citasDeHoyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem citasCanceladasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todasLasCitasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imprimirCitasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem citasDeHoyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem citasDeLaSemanaToolStripMenuItem;
     }
 }

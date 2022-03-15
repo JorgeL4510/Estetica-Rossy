@@ -168,7 +168,7 @@ namespace Estetica_Rossy
             {
                 if (txtNombreCliente.Text == "" || txtTelefono.Text == "" || IdCliente == 0)
                 {
-                    MessageBox.Show("Datos ingresados incorrectamente");
+                    MessageBox.Show("No se ha seleccionado ningún campo o los datos se han ingresado incorrectamente");
                 }
                 else
                 {
@@ -211,7 +211,7 @@ namespace Estetica_Rossy
             {
                 if (txtNombreCliente.Text == "" || txtTelefono.Text == "" || IdCliente == 0)
                 {
-                    MessageBox.Show("Datos ingresados incorrectamente");
+                    MessageBox.Show("No se ha seleccionado ningún campo o los datos se han ingresado incorrectamente");
                 }
                 else
                 {

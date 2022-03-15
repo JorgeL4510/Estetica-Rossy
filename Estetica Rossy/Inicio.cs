@@ -18,11 +18,12 @@ namespace Estetica_Rossy
         public string UsuarioN;
         public string CargoN;
         
+        
 
         public Inicio()
         {
-            InitializeComponent();
-        }
+            InitializeComponent();           
+        }        
 
         private void Inicio_Load(object sender, EventArgs e)
         {
@@ -33,6 +34,8 @@ namespace Estetica_Rossy
         {
             Login();
         }
+
+
 
         public void Login()
         {
@@ -76,7 +79,6 @@ namespace Estetica_Rossy
                 CargoN = "Administrador";
                 Citas m = new Citas(UsuarioN, CargoN);               
                 m.Show();
-
             }
             if (Cargo == 2)
             {
@@ -86,5 +88,20 @@ namespace Estetica_Rossy
             }
         }
 
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Convert.ToInt16(e.KeyChar) == Convert.ToInt16(Keys.Enter))
+            {
+                this.btnIngresar.PerformClick();
+            }           
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt16(e.KeyChar) == Convert.ToInt16(Keys.Enter))
+            {
+                this.txtContraseña.Focus();
+            }
+        }
     }
 }
