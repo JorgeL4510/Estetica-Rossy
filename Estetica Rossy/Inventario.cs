@@ -15,6 +15,7 @@ namespace Estetica_Rossy
     {
         String UsuarioN;
         String CargoN;
+        String IdVisi;
         public Inventario(string Usuario, string Cargo)
         {
             InitializeComponent();
@@ -70,6 +71,18 @@ namespace Estetica_Rossy
             Cliente mic = new Cliente(UsuarioN, CargoN);
             this.Dispose();
             mic.ShowDialog();
+        }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Marcas ma = new Marcas();            
+            ma.ShowDialog();
+        }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proveedores cp = new Proveedores();
+            cp.ShowDialog();
         }
 
 
@@ -311,5 +324,18 @@ namespace Estetica_Rossy
             IdMarca = 0;
             IdProveedor = 0;
         }
+
+        private void imprimirInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //IdVisi = dGInventario.SelectedRows[0].Cells[0].Value.ToString();
+            Reporte Reporte = new Reporte();
+            CrystalReport Reporte1 = new CrystalReport();
+            Reporte1.SetDataSource(GetData("EXEC Mostrar_Inventario"));
+            Reporte.ReportExporta = Reporte1;
+            Reporte.ShowDialog();
+            Reporte.Focus();
+        }
+
+        
     }
 }

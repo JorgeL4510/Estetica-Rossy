@@ -47,25 +47,29 @@ namespace Estetica_Rossy
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.lblCosto = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.NUDPrecio = new System.Windows.Forms.NumericUpDown();
             this.NUDCosto = new System.Windows.Forms.NumericUpDown();
             this.NUDCantidad = new System.Windows.Forms.NumericUpDown();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
-            this.modificarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGInventario)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -247,7 +251,9 @@ namespace Estetica_Rossy
             this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.añadirProductoToolStripMenuItem,
             this.modificarProductoToolStripMenuItem,
-            this.eliminarProductoToolStripMenuItem});
+            this.eliminarProductoToolStripMenuItem,
+            this.imprimirInventarioToolStripMenuItem,
+            this.añadirToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -258,6 +264,50 @@ namespace Estetica_Rossy
             this.añadirProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirProductoToolStripMenuItem.Text = "Añadir Producto";
             this.añadirProductoToolStripMenuItem.Click += new System.EventHandler(this.añadirProductoToolStripMenuItem_Click);
+            // 
+            // modificarProductoToolStripMenuItem
+            // 
+            this.modificarProductoToolStripMenuItem.Name = "modificarProductoToolStripMenuItem";
+            this.modificarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarProductoToolStripMenuItem.Text = "Modificar Producto";
+            this.modificarProductoToolStripMenuItem.Click += new System.EventHandler(this.modificarProductoToolStripMenuItem_Click);
+            // 
+            // eliminarProductoToolStripMenuItem
+            // 
+            this.eliminarProductoToolStripMenuItem.Name = "eliminarProductoToolStripMenuItem";
+            this.eliminarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarProductoToolStripMenuItem.Text = "Eliminar Producto";
+            this.eliminarProductoToolStripMenuItem.Click += new System.EventHandler(this.eliminarProductoToolStripMenuItem_Click);
+            // 
+            // imprimirInventarioToolStripMenuItem
+            // 
+            this.imprimirInventarioToolStripMenuItem.Name = "imprimirInventarioToolStripMenuItem";
+            this.imprimirInventarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.imprimirInventarioToolStripMenuItem.Text = "Imprimir Inventario";
+            this.imprimirInventarioToolStripMenuItem.Click += new System.EventHandler(this.imprimirInventarioToolStripMenuItem_Click);
+            // 
+            // añadirToolStripMenuItem
+            // 
+            this.añadirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcaToolStripMenuItem,
+            this.proveedorToolStripMenuItem});
+            this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
+            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirToolStripMenuItem.Text = "Añadir...";
+            // 
+            // marcaToolStripMenuItem
+            // 
+            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.marcaToolStripMenuItem.Text = "Marca";
+            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
+            // 
+            // proveedorToolStripMenuItem
+            // 
+            this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
+            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.proveedorToolStripMenuItem.Text = "Proveedor";
+            this.proveedorToolStripMenuItem.Click += new System.EventHandler(this.proveedorToolStripMenuItem_Click);
             // 
             // inicioCitasToolStripMenuItem
             // 
@@ -272,19 +322,6 @@ namespace Estetica_Rossy
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
-            // 
-            // ImgActualiar
-            // 
-            this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
-            this.ImgActualiar.Location = new System.Drawing.Point(889, 180);
-            this.ImgActualiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ImgActualiar.Name = "ImgActualiar";
-            this.ImgActualiar.Size = new System.Drawing.Size(45, 44);
-            this.ImgActualiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ImgActualiar.TabIndex = 42;
-            this.ImgActualiar.TabStop = false;
-            this.ImgActualiar.Click += new System.EventHandler(this.ImgActualiar_Click);
             // 
             // lblCosto
             // 
@@ -359,19 +396,18 @@ namespace Estetica_Rossy
             this.ImgCancelar.TabStop = false;
             this.ImgCancelar.Click += new System.EventHandler(this.ImgCancelar_Click);
             // 
-            // modificarProductoToolStripMenuItem
+            // ImgActualiar
             // 
-            this.modificarProductoToolStripMenuItem.Name = "modificarProductoToolStripMenuItem";
-            this.modificarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.modificarProductoToolStripMenuItem.Text = "Modificar Producto";
-            this.modificarProductoToolStripMenuItem.Click += new System.EventHandler(this.modificarProductoToolStripMenuItem_Click);
-            // 
-            // eliminarProductoToolStripMenuItem
-            // 
-            this.eliminarProductoToolStripMenuItem.Name = "eliminarProductoToolStripMenuItem";
-            this.eliminarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.eliminarProductoToolStripMenuItem.Text = "Eliminar Producto";
-            this.eliminarProductoToolStripMenuItem.Click += new System.EventHandler(this.eliminarProductoToolStripMenuItem_Click);
+            this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
+            this.ImgActualiar.Location = new System.Drawing.Point(889, 180);
+            this.ImgActualiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ImgActualiar.Name = "ImgActualiar";
+            this.ImgActualiar.Size = new System.Drawing.Size(45, 44);
+            this.ImgActualiar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImgActualiar.TabIndex = 42;
+            this.ImgActualiar.TabStop = false;
+            this.ImgActualiar.Click += new System.EventHandler(this.ImgActualiar_Click);
             // 
             // Inventario
             // 
@@ -411,11 +447,11 @@ namespace Estetica_Rossy
             ((System.ComponentModel.ISupportInitialize)(this.dGInventario)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCosto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,5 +488,9 @@ namespace Estetica_Rossy
         private System.Windows.Forms.PictureBox ImgCancelar;
         private System.Windows.Forms.ToolStripMenuItem modificarProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarProductoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imprimirInventarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem añadirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
     }
 }

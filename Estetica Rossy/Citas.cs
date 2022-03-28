@@ -29,7 +29,6 @@ namespace Estetica_Rossy
             CargoN = Cargo;
             lblUsuario.Text = "Usuario: " + Usuario;
             lblCargo.Text = Cargo;
-            lblPrueba.Text = U.CargoN;
         }
 
 

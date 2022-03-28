@@ -62,6 +62,7 @@ namespace Estetica_Rossy
             this.imprimirCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.citasDeHoyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.citasDeLaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -385,12 +386,22 @@ namespace Estetica_Rossy
             this.citasDeLaSemanaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.citasDeLaSemanaToolStripMenuItem.Text = "Citas de la semana";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(721, 364);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 32);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Citas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(909, 795);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ImgCancelar);
             this.Controls.Add(this.txtHoraInicio);
             this.Controls.Add(this.txtTratamiento);
@@ -461,5 +472,6 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ToolStripMenuItem imprimirCitasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem citasDeHoyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem citasDeLaSemanaToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
