@@ -49,6 +49,17 @@ namespace Estetica_Rossy
             return dt;
         }
 
+        
+
+         public DataTable CargarCombo_DatosProductos()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("CMB_Datos_Producto", cn.LeerCadena());
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
 
 
     }

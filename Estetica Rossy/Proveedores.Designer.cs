@@ -46,6 +46,7 @@ namespace Estetica_Rossy
             this.añadirProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGProveedores)).BeginInit();
@@ -56,6 +57,7 @@ namespace Estetica_Rossy
             // lblProveedores
             // 
             this.lblProveedores.AutoSize = true;
+            this.lblProveedores.BackColor = System.Drawing.Color.Gold;
             this.lblProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProveedores.Location = new System.Drawing.Point(12, 42);
             this.lblProveedores.Name = "lblProveedores";
@@ -76,6 +78,7 @@ namespace Estetica_Rossy
             // 
             // ImgCancelar
             // 
+            this.ImgCancelar.BackColor = System.Drawing.Color.Gold;
             this.ImgCancelar.Image = global::Estetica_Rossy.Properties.Resources.cancelar;
             this.ImgCancelar.Location = new System.Drawing.Point(457, 44);
             this.ImgCancelar.Name = "ImgCancelar";
@@ -87,6 +90,7 @@ namespace Estetica_Rossy
             // 
             // ImgActualiar
             // 
+            this.ImgActualiar.BackColor = System.Drawing.Color.Gold;
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
             this.ImgActualiar.Location = new System.Drawing.Point(518, 42);
@@ -192,7 +196,7 @@ namespace Estetica_Rossy
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(582, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(582, 30);
             this.menuStrip1.TabIndex = 67;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,35 +207,44 @@ namespace Estetica_Rossy
             this.editarProveedorToolStripMenuItem,
             this.eliminarToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // añadirProveedorToolStripMenuItem
             // 
             this.añadirProveedorToolStripMenuItem.Name = "añadirProveedorToolStripMenuItem";
-            this.añadirProveedorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirProveedorToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.añadirProveedorToolStripMenuItem.Text = "Añadir Proveedor";
             this.añadirProveedorToolStripMenuItem.Click += new System.EventHandler(this.añadirProveedorToolStripMenuItem_Click);
             // 
             // editarProveedorToolStripMenuItem
             // 
             this.editarProveedorToolStripMenuItem.Name = "editarProveedorToolStripMenuItem";
-            this.editarProveedorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editarProveedorToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.editarProveedorToolStripMenuItem.Text = "Editar Proveedor";
             this.editarProveedorToolStripMenuItem.Click += new System.EventHandler(this.editarProveedorToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar Proveedor";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(582, 97);
+            this.panel1.TabIndex = 70;
             // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(582, 658);
             this.Controls.Add(this.NUDProveedores);
             this.Controls.Add(this.lblTelefono);
@@ -246,8 +259,10 @@ namespace Estetica_Rossy
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombreMarcas);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Proveedores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.Proveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
@@ -280,5 +295,6 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ToolStripMenuItem añadirProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -50,8 +50,9 @@ namespace Estetica_Rossy
             this.ClientSize = new System.Drawing.Size(1275, 732);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Reporte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte";
-            this.Load += new System.EventHandler(this.Reporte_Load_1);
+            this.Load += new System.EventHandler(this.Reporte_Load);
             this.ResumeLayout(false);
 
         }

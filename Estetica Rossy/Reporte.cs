@@ -23,7 +23,7 @@ namespace Estetica_Rossy
         }
 
 
-        private void Reporte_Load_1(object sender, EventArgs e)
+        private void Reporte_Load(object sender, EventArgs e)
         {
             crystalReportViewer1.ReportSource = ReportExporta;
         }

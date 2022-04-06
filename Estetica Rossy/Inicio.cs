@@ -22,7 +22,9 @@ namespace Estetica_Rossy
 
         public Inicio()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            Orden vo = new Orden();
+            vo.Show();
         }        
 
         private void Inicio_Load(object sender, EventArgs e)

@@ -48,6 +48,9 @@ namespace Estetica_Rossy
             this.citasDeHoyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.citasCanceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todasLasCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasDeHoyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.citasDeLaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCitas = new System.Windows.Forms.Label();
@@ -59,9 +62,6 @@ namespace Estetica_Rossy
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
             this.txtHoraInicio = new System.Windows.Forms.TextBox();
-            this.imprimirCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.citasDeHoyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.citasDeLaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -149,11 +149,11 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel1.BackColor = System.Drawing.Color.Gold;
             this.panel1.Controls.Add(this.lblCargo);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Controls.Add(this.lblEsteticaRossy);
-            this.panel1.Location = new System.Drawing.Point(1, 30);
+            this.panel1.Location = new System.Drawing.Point(1, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(908, 143);
@@ -208,21 +208,21 @@ namespace Estetica_Rossy
             // añadirCitaToolStripMenuItem
             // 
             this.añadirCitaToolStripMenuItem.Name = "añadirCitaToolStripMenuItem";
-            this.añadirCitaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirCitaToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.añadirCitaToolStripMenuItem.Text = "Añadir Cita";
             this.añadirCitaToolStripMenuItem.Click += new System.EventHandler(this.añadirCitaToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.modificarToolStripMenuItem.Text = "Modificar datos";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar cita";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
@@ -233,7 +233,7 @@ namespace Estetica_Rossy
             this.citasCanceladasToolStripMenuItem,
             this.todasLasCitasToolStripMenuItem});
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.mostrarToolStripMenuItem.Text = "Mostrar...";
             // 
             // citasDeHoyToolStripMenuItem
@@ -256,6 +256,27 @@ namespace Estetica_Rossy
             this.todasLasCitasToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.todasLasCitasToolStripMenuItem.Text = "Todas las citas";
             this.todasLasCitasToolStripMenuItem.Click += new System.EventHandler(this.todasLasCitasToolStripMenuItem_Click);
+            // 
+            // imprimirCitasToolStripMenuItem
+            // 
+            this.imprimirCitasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.citasDeHoyToolStripMenuItem1,
+            this.citasDeLaSemanaToolStripMenuItem});
+            this.imprimirCitasToolStripMenuItem.Name = "imprimirCitasToolStripMenuItem";
+            this.imprimirCitasToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.imprimirCitasToolStripMenuItem.Text = "Imprimir Citas...";
+            // 
+            // citasDeHoyToolStripMenuItem1
+            // 
+            this.citasDeHoyToolStripMenuItem1.Name = "citasDeHoyToolStripMenuItem1";
+            this.citasDeHoyToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.citasDeHoyToolStripMenuItem1.Text = "Citas de Hoy";
+            // 
+            // citasDeLaSemanaToolStripMenuItem
+            // 
+            this.citasDeLaSemanaToolStripMenuItem.Name = "citasDeLaSemanaToolStripMenuItem";
+            this.citasDeLaSemanaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.citasDeLaSemanaToolStripMenuItem.Text = "Citas de la semana";
             // 
             // clientesToolStripMenuItem
             // 
@@ -365,27 +386,6 @@ namespace Estetica_Rossy
             this.txtHoraInicio.Size = new System.Drawing.Size(183, 30);
             this.txtHoraInicio.TabIndex = 47;
             // 
-            // imprimirCitasToolStripMenuItem
-            // 
-            this.imprimirCitasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.citasDeHoyToolStripMenuItem1,
-            this.citasDeLaSemanaToolStripMenuItem});
-            this.imprimirCitasToolStripMenuItem.Name = "imprimirCitasToolStripMenuItem";
-            this.imprimirCitasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.imprimirCitasToolStripMenuItem.Text = "Imprimir Citas...";
-            // 
-            // citasDeHoyToolStripMenuItem1
-            // 
-            this.citasDeHoyToolStripMenuItem1.Name = "citasDeHoyToolStripMenuItem1";
-            this.citasDeHoyToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.citasDeHoyToolStripMenuItem1.Text = "Citas de Hoy";
-            // 
-            // citasDeLaSemanaToolStripMenuItem
-            // 
-            this.citasDeLaSemanaToolStripMenuItem.Name = "citasDeLaSemanaToolStripMenuItem";
-            this.citasDeLaSemanaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.citasDeLaSemanaToolStripMenuItem.Text = "Citas de la semana";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(721, 364);
@@ -399,7 +399,7 @@ namespace Estetica_Rossy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(909, 795);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ImgCancelar);

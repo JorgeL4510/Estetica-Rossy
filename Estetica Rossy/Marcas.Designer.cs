@@ -42,10 +42,13 @@ namespace Estetica_Rossy
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblMarcas = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblEsteticaRossy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGMarcas)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombreM
@@ -110,32 +113,33 @@ namespace Estetica_Rossy
             this.editarMarcaToolStripMenuItem,
             this.eliminarMarcaToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // añadirMarcaToolStripMenuItem
             // 
             this.añadirMarcaToolStripMenuItem.Name = "añadirMarcaToolStripMenuItem";
-            this.añadirMarcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirMarcaToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.añadirMarcaToolStripMenuItem.Text = "Añadir Marca";
             this.añadirMarcaToolStripMenuItem.Click += new System.EventHandler(this.añadirMarcaToolStripMenuItem_Click);
             // 
             // editarMarcaToolStripMenuItem
             // 
             this.editarMarcaToolStripMenuItem.Name = "editarMarcaToolStripMenuItem";
-            this.editarMarcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.editarMarcaToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.editarMarcaToolStripMenuItem.Text = "Editar Marca";
             this.editarMarcaToolStripMenuItem.Click += new System.EventHandler(this.editarMarcaToolStripMenuItem_Click);
             // 
             // eliminarMarcaToolStripMenuItem
             // 
             this.eliminarMarcaToolStripMenuItem.Name = "eliminarMarcaToolStripMenuItem";
-            this.eliminarMarcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarMarcaToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
             this.eliminarMarcaToolStripMenuItem.Text = "Eliminar Marca";
             this.eliminarMarcaToolStripMenuItem.Click += new System.EventHandler(this.eliminarMarcaToolStripMenuItem_Click);
             // 
             // ImgCancelar
             // 
+            this.ImgCancelar.BackColor = System.Drawing.Color.Gold;
             this.ImgCancelar.Image = global::Estetica_Rossy.Properties.Resources.cancelar;
             this.ImgCancelar.Location = new System.Drawing.Point(361, 50);
             this.ImgCancelar.Name = "ImgCancelar";
@@ -147,6 +151,7 @@ namespace Estetica_Rossy
             // 
             // ImgActualiar
             // 
+            this.ImgActualiar.BackColor = System.Drawing.Color.Gold;
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
             this.ImgActualiar.Location = new System.Drawing.Point(413, 50);
@@ -172,6 +177,7 @@ namespace Estetica_Rossy
             // lblMarcas
             // 
             this.lblMarcas.AutoSize = true;
+            this.lblMarcas.BackColor = System.Drawing.Color.Gold;
             this.lblMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarcas.Location = new System.Drawing.Point(12, 48);
             this.lblMarcas.Name = "lblMarcas";
@@ -179,11 +185,31 @@ namespace Estetica_Rossy
             this.lblMarcas.TabIndex = 53;
             this.lblMarcas.Text = "Marcas";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Controls.Add(this.lblEsteticaRossy);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(482, 102);
+            this.panel1.TabIndex = 55;
+            // 
+            // lblEsteticaRossy
+            // 
+            this.lblEsteticaRossy.AutoSize = true;
+            this.lblEsteticaRossy.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEsteticaRossy.Location = new System.Drawing.Point(625, 41);
+            this.lblEsteticaRossy.Name = "lblEsteticaRossy";
+            this.lblEsteticaRossy.Size = new System.Drawing.Size(309, 51);
+            this.lblEsteticaRossy.TabIndex = 27;
+            this.lblEsteticaRossy.Text = "Estética Rossy";
+            // 
             // Marcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(482, 525);
             this.Controls.Add(this.lblMarcas);
             this.Controls.Add(this.lblBuscar);
@@ -194,6 +220,7 @@ namespace Estetica_Rossy
             this.Controls.Add(this.txtNombreM);
             this.Controls.Add(this.lblNombreMarcas);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Marcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -204,6 +231,8 @@ namespace Estetica_Rossy
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +253,7 @@ namespace Estetica_Rossy
         private System.Windows.Forms.PictureBox ImgActualiar;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.Label lblMarcas;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblEsteticaRossy;
     }
 }

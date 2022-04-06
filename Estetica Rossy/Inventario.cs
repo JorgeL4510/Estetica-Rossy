@@ -336,6 +336,10 @@ namespace Estetica_Rossy
             Reporte.Focus();
         }
 
-        
+        private void ordenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Orden vo = new Orden();
+            vo.Show();
+        }
     }
 }

@@ -96,7 +96,7 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Blue;
+            this.panel1.BackColor = System.Drawing.Color.Gold;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
@@ -105,7 +105,7 @@ namespace Estetica_Rossy
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Blue;
+            this.panel2.BackColor = System.Drawing.Color.Gold;
             this.panel2.Location = new System.Drawing.Point(1, 445);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(832, 44);
@@ -147,7 +147,7 @@ namespace Estetica_Rossy
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(832, 488);
             this.Controls.Add(this.ImgContraseña);
             this.Controls.Add(this.ImgUsuario);
