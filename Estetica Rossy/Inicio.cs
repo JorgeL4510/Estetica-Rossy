@@ -23,8 +23,6 @@ namespace Estetica_Rossy
         public Inicio()
         {
             InitializeComponent();
-            Orden vo = new Orden();
-            vo.Show();
         }        
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -104,6 +102,11 @@ namespace Estetica_Rossy
             {
                 this.txtContraseña.Focus();
             }
+        }
+
+        private void Inicio_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

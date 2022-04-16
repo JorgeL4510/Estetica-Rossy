@@ -16,7 +16,15 @@ namespace Estetica_Rossy
         public Marcas()
         {
             InitializeComponent();
+        }        
+
+        private void Marcas_Load(object sender, EventArgs e)
+        {
+            LlenarGrid();
         }
+
+        //Metodos
+        #region
 
         ClsConexion DB_CONN = new ClsConexion();
         SqlCommand cm = new SqlCommand();
@@ -27,15 +35,6 @@ namespace Estetica_Rossy
 
         int IdMarca = 0;
         string NombreMarca;
-
-        private void Marcas_Load(object sender, EventArgs e)
-        {
-            LlenarGrid();
-        }
-
-        //Funciones
-        #region
-
         private void Buscar()
         {
             try
@@ -90,13 +89,9 @@ namespace Estetica_Rossy
             añadirMarcaToolStripMenuItem.Enabled = false;
         }     
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            Buscar();
-        }
+
 
         #endregion
-
 
         //Funciones pantalla
         #region
@@ -227,9 +222,14 @@ namespace Estetica_Rossy
             }
         }
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
         #endregion
 
-        
+
 
 
     }

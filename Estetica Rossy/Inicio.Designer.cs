@@ -29,6 +29,7 @@ namespace Estetica_Rossy
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -37,11 +38,13 @@ namespace Estetica_Rossy
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.ImgUsuario = new System.Windows.Forms.PictureBox();
             this.ImgContraseña = new System.Windows.Forms.PictureBox();
+            this.ImgUsuario = new System.Windows.Forms.PictureBox();
+            this.IMGLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgContraseña)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -77,6 +80,7 @@ namespace Estetica_Rossy
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
+            this.lblContraseña.BackColor = System.Drawing.Color.Transparent;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContraseña.Location = new System.Drawing.Point(329, 253);
             this.lblContraseña.Name = "lblContraseña";
@@ -96,7 +100,7 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
@@ -105,7 +109,7 @@ namespace Estetica_Rossy
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gold;
+            this.panel2.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel2.Location = new System.Drawing.Point(1, 445);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(832, 44);
@@ -122,6 +126,16 @@ namespace Estetica_Rossy
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // ImgContraseña
+            // 
+            this.ImgContraseña.Image = global::Estetica_Rossy.Properties.Resources.Logo_contraseña;
+            this.ImgContraseña.Location = new System.Drawing.Point(222, 288);
+            this.ImgContraseña.Name = "ImgContraseña";
+            this.ImgContraseña.Size = new System.Drawing.Size(35, 35);
+            this.ImgContraseña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImgContraseña.TabIndex = 9;
+            this.ImgContraseña.TabStop = false;
+            // 
             // ImgUsuario
             // 
             this.ImgUsuario.Image = global::Estetica_Rossy.Properties.Resources.Logo_usuario;
@@ -132,15 +146,16 @@ namespace Estetica_Rossy
             this.ImgUsuario.TabIndex = 8;
             this.ImgUsuario.TabStop = false;
             // 
-            // ImgContraseña
+            // IMGLogo
             // 
-            this.ImgContraseña.Image = global::Estetica_Rossy.Properties.Resources.Logo_contraseña;
-            this.ImgContraseña.Location = new System.Drawing.Point(222, 288);
-            this.ImgContraseña.Name = "ImgContraseña";
-            this.ImgContraseña.Size = new System.Drawing.Size(35, 35);
-            this.ImgContraseña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ImgContraseña.TabIndex = 9;
-            this.ImgContraseña.TabStop = false;
+            this.IMGLogo.Enabled = false;
+            this.IMGLogo.Image = global::Estetica_Rossy.Properties.Resources.Estetica_Rossy_Logo;
+            this.IMGLogo.Location = new System.Drawing.Point(1, 101);
+            this.IMGLogo.Name = "IMGLogo";
+            this.IMGLogo.Size = new System.Drawing.Size(388, 347);
+            this.IMGLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IMGLogo.TabIndex = 10;
+            this.IMGLogo.TabStop = false;
             // 
             // Inicio
             // 
@@ -158,13 +173,17 @@ namespace Estetica_Rossy
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.IMGLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar sesión";
+            this.Load += new System.EventHandler(this.Inicio_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgContraseña)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +201,6 @@ namespace Estetica_Rossy
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.PictureBox ImgUsuario;
         private System.Windows.Forms.PictureBox ImgContraseña;
+        private System.Windows.Forms.PictureBox IMGLogo;
     }
 }

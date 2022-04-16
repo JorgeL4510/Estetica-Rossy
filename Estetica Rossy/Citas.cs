@@ -13,24 +13,17 @@ namespace Estetica_Rossy
 {
     public partial class Citas : Form
     {
-        String UsuarioN;
-        String CargoN;
-
         Inicio U = new Inicio();
-        
-        
 
+        string UsuarioN;
+        string CargoN;
 
         Categoria cat = new Categoria();
         public Citas(string Usuario, string Cargo)
         {
             InitializeComponent();
-            UsuarioN = Usuario;
-            CargoN = Cargo;
-            lblUsuario.Text = "Usuario: " + Usuario;
-            lblCargo.Text = Cargo;
-        }
-
+            DatosUsuario(Usuario, Cargo);
+        }        
 
         private void Citas_Load(object sender, EventArgs e)
         {
@@ -58,18 +51,29 @@ namespace Estetica_Rossy
         #region
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cliente mic = new Cliente(UsuarioN, CargoN);
+            Cliente mic = new Cliente(UsuarioN, CargoN); 
+            this.Hide();
             mic.ShowDialog();
+            this.Close();
         }
 
         private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Inventario minv = new Inventario(UsuarioN, CargoN);
+            this.Hide();            
             minv.ShowDialog();
+            this.Close();
+        }
+
+        private void ordenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Orden or = new Orden(UsuarioN, CargoN);
+            this.Hide();            
+            or.ShowDialog();
+            this.Close();
         }
 
         #endregion
-
 
         //Metodos
         #region
@@ -81,6 +85,14 @@ namespace Estetica_Rossy
             dt = new DataTable();
             adp.Fill(dt);
             return dt;
+        }
+
+        public void DatosUsuario(string Usuario, string Cargo)
+        {
+            lblUsuario.Text = "Usuario: " + Usuario;
+            lblCargo.Text = Cargo;
+            UsuarioN = Usuario;
+            CargoN = Cargo;
         }
 
         private void LimpiarCampos()
@@ -327,8 +339,9 @@ namespace Estetica_Rossy
             IdCliente = 0;
         }
 
-        #endregion
 
+
+        #endregion
 
 
     }

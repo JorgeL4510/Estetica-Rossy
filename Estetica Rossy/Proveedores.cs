@@ -18,6 +18,14 @@ namespace Estetica_Rossy
             InitializeComponent();
         }
 
+        private void Proveedores_Load(object sender, EventArgs e)
+        {
+            LlenarGrid();
+        }
+
+        //Metodos
+        #region
+
         ClsConexion DB_CONN = new ClsConexion();
         SqlCommand cm = new SqlCommand();
 
@@ -88,6 +96,11 @@ namespace Estetica_Rossy
             }
         }
 
+        #endregion
+
+        //Funciones pantalla
+        #region
+
         private void ImgCancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -100,10 +113,7 @@ namespace Estetica_Rossy
             dGProveedores.DataSource = GetData("MostrarProveedores");
         }
 
-        private void Proveedores_Load(object sender, EventArgs e)
-        {
-            LlenarGrid();
-        }
+
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -146,7 +156,7 @@ namespace Estetica_Rossy
                 }
             }
         }
-        
+
         private void editarProveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Esta seguro de querer actualizar el proveedor?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -226,5 +236,7 @@ namespace Estetica_Rossy
 
             }
         }
+
+        #endregion
     }
 }

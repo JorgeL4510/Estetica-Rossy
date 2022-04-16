@@ -29,6 +29,7 @@ namespace Estetica_Rossy
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventario));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCargo = new System.Windows.Forms.Label();
             this.lblEsteticaRossy = new System.Windows.Forms.Label();
@@ -49,13 +50,12 @@ namespace Estetica_Rossy
             this.añadirProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imprimirInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ordenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCosto = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.NUDPrecio = new System.Windows.Forms.NumericUpDown();
@@ -63,6 +63,8 @@ namespace Estetica_Rossy
             this.NUDCantidad = new System.Windows.Forms.NumericUpDown();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
+            this.IMGLogo = new System.Windows.Forms.PictureBox();
+            this.ImgImprimir = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGInventario)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -71,11 +73,13 @@ namespace Estetica_Rossy
             ((System.ComponentModel.ISupportInitialize)(this.NUDCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgImprimir)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.lblCargo);
             this.panel1.Controls.Add(this.lblEsteticaRossy);
             this.panel1.Controls.Add(this.lblUsuario);
@@ -138,7 +142,7 @@ namespace Estetica_Rossy
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(132, 411);
+            this.txtBuscar.Location = new System.Drawing.Point(132, 406);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
@@ -150,7 +154,7 @@ namespace Estetica_Rossy
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(16, 411);
+            this.lblBuscar.Location = new System.Drawing.Point(16, 405);
             this.lblBuscar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(87, 29);
@@ -162,7 +166,7 @@ namespace Estetica_Rossy
             this.dGInventario.AllowUserToAddRows = false;
             this.dGInventario.AllowUserToDeleteRows = false;
             this.dGInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGInventario.Location = new System.Drawing.Point(12, 462);
+            this.dGInventario.Location = new System.Drawing.Point(12, 452);
             this.dGInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dGInventario.MultiSelect = false;
             this.dGInventario.Name = "dGInventario";
@@ -170,7 +174,7 @@ namespace Estetica_Rossy
             this.dGInventario.RowHeadersWidth = 51;
             this.dGInventario.RowTemplate.Height = 24;
             this.dGInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGInventario.Size = new System.Drawing.Size(923, 345);
+            this.dGInventario.Size = new System.Drawing.Size(923, 224);
             this.dGInventario.TabIndex = 33;
             this.dGInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGInventario_CellDoubleClick);
             // 
@@ -239,7 +243,8 @@ namespace Estetica_Rossy
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opcionesToolStripMenuItem,
             this.inicioCitasToolStripMenuItem,
-            this.clienteToolStripMenuItem});
+            this.clienteToolStripMenuItem,
+            this.ordenToolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -253,9 +258,7 @@ namespace Estetica_Rossy
             this.añadirProductoToolStripMenuItem,
             this.modificarProductoToolStripMenuItem,
             this.eliminarProductoToolStripMenuItem,
-            this.imprimirInventarioToolStripMenuItem,
-            this.añadirToolStripMenuItem,
-            this.ordenToolStripMenuItem});
+            this.añadirToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
@@ -263,30 +266,23 @@ namespace Estetica_Rossy
             // añadirProductoToolStripMenuItem
             // 
             this.añadirProductoToolStripMenuItem.Name = "añadirProductoToolStripMenuItem";
-            this.añadirProductoToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.añadirProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirProductoToolStripMenuItem.Text = "Añadir Producto";
             this.añadirProductoToolStripMenuItem.Click += new System.EventHandler(this.añadirProductoToolStripMenuItem_Click);
             // 
             // modificarProductoToolStripMenuItem
             // 
             this.modificarProductoToolStripMenuItem.Name = "modificarProductoToolStripMenuItem";
-            this.modificarProductoToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.modificarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.modificarProductoToolStripMenuItem.Text = "Modificar Producto";
             this.modificarProductoToolStripMenuItem.Click += new System.EventHandler(this.modificarProductoToolStripMenuItem_Click);
             // 
             // eliminarProductoToolStripMenuItem
             // 
             this.eliminarProductoToolStripMenuItem.Name = "eliminarProductoToolStripMenuItem";
-            this.eliminarProductoToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.eliminarProductoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.eliminarProductoToolStripMenuItem.Text = "Eliminar Producto";
             this.eliminarProductoToolStripMenuItem.Click += new System.EventHandler(this.eliminarProductoToolStripMenuItem_Click);
-            // 
-            // imprimirInventarioToolStripMenuItem
-            // 
-            this.imprimirInventarioToolStripMenuItem.Name = "imprimirInventarioToolStripMenuItem";
-            this.imprimirInventarioToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
-            this.imprimirInventarioToolStripMenuItem.Text = "Imprimir Inventario";
-            this.imprimirInventarioToolStripMenuItem.Click += new System.EventHandler(this.imprimirInventarioToolStripMenuItem_Click);
             // 
             // añadirToolStripMenuItem
             // 
@@ -294,7 +290,7 @@ namespace Estetica_Rossy
             this.marcaToolStripMenuItem,
             this.proveedorToolStripMenuItem});
             this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
-            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirToolStripMenuItem.Text = "Añadir...";
             // 
             // marcaToolStripMenuItem
@@ -311,13 +307,6 @@ namespace Estetica_Rossy
             this.proveedorToolStripMenuItem.Text = "Proveedor";
             this.proveedorToolStripMenuItem.Click += new System.EventHandler(this.proveedorToolStripMenuItem_Click);
             // 
-            // ordenToolStripMenuItem
-            // 
-            this.ordenToolStripMenuItem.Name = "ordenToolStripMenuItem";
-            this.ordenToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
-            this.ordenToolStripMenuItem.Text = "Orden";
-            this.ordenToolStripMenuItem.Click += new System.EventHandler(this.ordenToolStripMenuItem_Click);
-            // 
             // inicioCitasToolStripMenuItem
             // 
             this.inicioCitasToolStripMenuItem.Name = "inicioCitasToolStripMenuItem";
@@ -331,6 +320,13 @@ namespace Estetica_Rossy
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            // 
+            // ordenToolStripMenuItem3
+            // 
+            this.ordenToolStripMenuItem3.Name = "ordenToolStripMenuItem3";
+            this.ordenToolStripMenuItem3.Size = new System.Drawing.Size(64, 24);
+            this.ordenToolStripMenuItem3.Text = "Orden";
+            this.ordenToolStripMenuItem3.Click += new System.EventHandler(this.ordenToolStripMenuItem3_Click);
             // 
             // lblCosto
             // 
@@ -418,13 +414,35 @@ namespace Estetica_Rossy
             this.ImgActualiar.TabStop = false;
             this.ImgActualiar.Click += new System.EventHandler(this.ImgActualiar_Click);
             // 
+            // IMGLogo
+            // 
+            this.IMGLogo.Image = global::Estetica_Rossy.Properties.Resources.Estetica_Rossy_Logo;
+            this.IMGLogo.Location = new System.Drawing.Point(336, 178);
+            this.IMGLogo.Name = "IMGLogo";
+            this.IMGLogo.Size = new System.Drawing.Size(319, 244);
+            this.IMGLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IMGLogo.TabIndex = 52;
+            this.IMGLogo.TabStop = false;
+            // 
+            // ImgImprimir
+            // 
+            this.ImgImprimir.Image = global::Estetica_Rossy.Properties.Resources.imprimir;
+            this.ImgImprimir.Location = new System.Drawing.Point(763, 182);
+            this.ImgImprimir.Name = "ImgImprimir";
+            this.ImgImprimir.Size = new System.Drawing.Size(42, 42);
+            this.ImgImprimir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImgImprimir.TabIndex = 68;
+            this.ImgImprimir.TabStop = false;
+            this.ImgImprimir.Click += new System.EventHandler(this.ImgImprimir_Click);
+            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(949, 820);
+            this.ClientSize = new System.Drawing.Size(949, 691);
+            this.Controls.Add(this.ImgImprimir);
             this.Controls.Add(this.ImgCancelar);
             this.Controls.Add(this.NUDCantidad);
             this.Controls.Add(this.NUDCosto);
@@ -445,6 +463,8 @@ namespace Estetica_Rossy
             this.Controls.Add(this.CMBProveedor);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.IMGLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Inventario";
@@ -461,6 +481,8 @@ namespace Estetica_Rossy
             ((System.ComponentModel.ISupportInitialize)(this.NUDCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgImprimir)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,10 +519,11 @@ namespace Estetica_Rossy
         private System.Windows.Forms.PictureBox ImgCancelar;
         private System.Windows.Forms.ToolStripMenuItem modificarProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarProductoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imprimirInventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem añadirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ordenToolStripMenuItem;
+        private System.Windows.Forms.PictureBox IMGLogo;
+        private System.Windows.Forms.PictureBox ImgImprimir;
+        private System.Windows.Forms.ToolStripMenuItem ordenToolStripMenuItem3;
     }
 }

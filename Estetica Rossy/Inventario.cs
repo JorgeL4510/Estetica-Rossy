@@ -19,10 +19,7 @@ namespace Estetica_Rossy
         public Inventario(string Usuario, string Cargo)
         {
             InitializeComponent();
-            UsuarioN = Usuario;
-            CargoN = Cargo;
-            lblUsuario.Text = "Usuario: " + Usuario;
-            lblCargo.Text = Cargo;
+            DatosUsuario(Usuario, Cargo);
         }
 
         private void Inventario_Load(object sender, EventArgs e)
@@ -31,13 +28,56 @@ namespace Estetica_Rossy
             CargarComboBox();
         }
 
+        //Cambiar ventana
+        #region
+        private void inicioCitasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Citas mc = new Citas(UsuarioN, CargoN);
+            this.Hide();
+            mc.ShowDialog();
+            this.Close();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cliente mic = new Cliente(UsuarioN, CargoN);
+            this.Hide();
+            mic.ShowDialog();
+            this.Close();
+        }
+
+        private void ordenToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Orden or = new Orden(UsuarioN, CargoN);
+            this.Hide();
+            or.ShowDialog();
+            this.Close();
+        }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Marcas m = new Marcas();
+            m.ShowDialog();
+        }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proveedores cp = new Proveedores();
+            cp.ShowDialog();
+        }
+
+        #endregion
+
+        //Metodos
+        #region
+
         ClsConexion DB_CONN = new ClsConexion();
         SqlCommand cm = new SqlCommand();
 
         DataTable dt;
 
         Categoria cat = new Categoria();
-       
+
         int IdProducto = 0;
         string NombreProducto;
         int IdMarca;
@@ -45,7 +85,6 @@ namespace Estetica_Rossy
         decimal Precio;
         int Cantidad;
         int IdProveedor;
-
 
         public DataTable GetData(string consulta)
         {
@@ -56,40 +95,13 @@ namespace Estetica_Rossy
             return dt;
         }
 
-
-        //Cambiar ventana
-        #region
-        private void inicioCitasToolStripMenuItem_Click(object sender, EventArgs e)
+        public void DatosUsuario(string Usuario, string Cargo)
         {
-            Citas min = new Citas(UsuarioN, CargoN);
-            this.Dispose();
-            min.ShowDialog();
+            lblUsuario.Text = "Usuario: " + Usuario;
+            lblCargo.Text = Cargo;
+            UsuarioN = Usuario;
+            CargoN = Cargo;
         }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Cliente mic = new Cliente(UsuarioN, CargoN);
-            this.Dispose();
-            mic.ShowDialog();
-        }
-
-        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Marcas ma = new Marcas();            
-            ma.ShowDialog();
-        }
-
-        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Proveedores cp = new Proveedores();
-            cp.ShowDialog();
-        }
-
-
-        #endregion
-
-        //Metodos
-        #region
 
         private void Buscar()
         {
@@ -309,8 +321,6 @@ namespace Estetica_Rossy
             }
         }
 
-        #endregion
-
         private void dGInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SeleccionarDatos();
@@ -325,9 +335,8 @@ namespace Estetica_Rossy
             IdProveedor = 0;
         }
 
-        private void imprimirInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ImgImprimir_Click(object sender, EventArgs e)
         {
-            //IdVisi = dGInventario.SelectedRows[0].Cells[0].Value.ToString();
             Reporte Reporte = new Reporte();
             CrystalReport Reporte1 = new CrystalReport();
             Reporte1.SetDataSource(GetData("EXEC Mostrar_Inventario"));
@@ -336,10 +345,10 @@ namespace Estetica_Rossy
             Reporte.Focus();
         }
 
-        private void ordenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Orden vo = new Orden();
-            vo.Show();
-        }
+        #endregion
+
+
+
+
     }
 }

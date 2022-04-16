@@ -29,6 +29,7 @@ namespace Estetica_Rossy
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Citas));
             this.dGCitas = new System.Windows.Forms.DataGridView();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblEsteticaRossy = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@ namespace Estetica_Rossy
             this.citasDeLaSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCitas = new System.Windows.Forms.Label();
             this.dTPBuscar = new System.Windows.Forms.DateTimePicker();
             this.lblHoraInicio = new System.Windows.Forms.Label();
@@ -62,12 +64,13 @@ namespace Estetica_Rossy
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
             this.txtHoraInicio = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.IMGLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // dGCitas
@@ -75,7 +78,7 @@ namespace Estetica_Rossy
             this.dGCitas.AllowUserToAddRows = false;
             this.dGCitas.AllowUserToDeleteRows = false;
             this.dGCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGCitas.Location = new System.Drawing.Point(8, 466);
+            this.dGCitas.Location = new System.Drawing.Point(8, 457);
             this.dGCitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dGCitas.MultiSelect = false;
             this.dGCitas.Name = "dGCitas";
@@ -91,7 +94,7 @@ namespace Estetica_Rossy
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(12, 415);
+            this.lblBuscar.Location = new System.Drawing.Point(12, 411);
             this.lblBuscar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(93, 29);
@@ -149,7 +152,7 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.lblCargo);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Controls.Add(this.lblEsteticaRossy);
@@ -185,11 +188,12 @@ namespace Estetica_Rossy
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opcionesToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.inventarioToolStripMenuItem});
+            this.inventarioToolStripMenuItem,
+            this.ordenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(909, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(909, 30);
             this.menuStrip1.TabIndex = 39;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -202,7 +206,7 @@ namespace Estetica_Rossy
             this.mostrarToolStripMenuItem,
             this.imprimirCitasToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // añadirCitaToolStripMenuItem
@@ -281,16 +285,23 @@ namespace Estetica_Rossy
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
             this.inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
-            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(89, 26);
             this.inventarioToolStripMenuItem.Text = "Inventario";
             this.inventarioToolStripMenuItem.Click += new System.EventHandler(this.inventarioToolStripMenuItem_Click);
+            // 
+            // ordenToolStripMenuItem
+            // 
+            this.ordenToolStripMenuItem.Name = "ordenToolStripMenuItem";
+            this.ordenToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.ordenToolStripMenuItem.Text = "Orden";
+            this.ordenToolStripMenuItem.Click += new System.EventHandler(this.ordenToolStripMenuItem_Click);
             // 
             // lblCitas
             // 
@@ -305,7 +316,7 @@ namespace Estetica_Rossy
             // dTPBuscar
             // 
             this.dTPBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dTPBuscar.Location = new System.Drawing.Point(131, 415);
+            this.dTPBuscar.Location = new System.Drawing.Point(131, 411);
             this.dTPBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dTPBuscar.Name = "dTPBuscar";
             this.dTPBuscar.Size = new System.Drawing.Size(762, 30);
@@ -386,14 +397,15 @@ namespace Estetica_Rossy
             this.txtHoraInicio.Size = new System.Drawing.Size(183, 30);
             this.txtHoraInicio.TabIndex = 47;
             // 
-            // button1
+            // IMGLogo
             // 
-            this.button1.Location = new System.Drawing.Point(721, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 32);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.IMGLogo.Image = global::Estetica_Rossy.Properties.Resources.Estetica_Rossy_Logo;
+            this.IMGLogo.Location = new System.Drawing.Point(308, 176);
+            this.IMGLogo.Name = "IMGLogo";
+            this.IMGLogo.Size = new System.Drawing.Size(300, 230);
+            this.IMGLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IMGLogo.TabIndex = 52;
+            this.IMGLogo.TabStop = false;
             // 
             // Citas
             // 
@@ -401,7 +413,6 @@ namespace Estetica_Rossy
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(909, 795);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ImgCancelar);
             this.Controls.Add(this.txtHoraInicio);
             this.Controls.Add(this.txtTratamiento);
@@ -419,11 +430,13 @@ namespace Estetica_Rossy
             this.Controls.Add(this.dGCitas);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.IMGLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Citas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicio";
+            this.Text = "Citas";
             this.Load += new System.EventHandler(this.Citas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGCitas)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -432,6 +445,7 @@ namespace Estetica_Rossy
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,6 +486,7 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ToolStripMenuItem imprimirCitasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem citasDeHoyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem citasDeLaSemanaToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem ordenToolStripMenuItem;
+        private System.Windows.Forms.PictureBox IMGLogo;
     }
 }

@@ -17,15 +17,22 @@ namespace Estetica_Rossy
     public partial class Reporte : Form
     {
         internal CrystalDecisions.CrystalReports.Engine.ReportDocument ReportExporta;
+
         public Reporte()
         {
             InitializeComponent();
         }
 
-
         private void Reporte_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
             crystalReportViewer1.ReportSource = ReportExporta;
         }
     }
+
+
 }

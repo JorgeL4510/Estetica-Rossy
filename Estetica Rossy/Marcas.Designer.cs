@@ -29,6 +29,7 @@ namespace Estetica_Rossy
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Marcas));
             this.txtNombreM = new System.Windows.Forms.TextBox();
             this.lblNombreMarcas = new System.Windows.Forms.Label();
             this.dGMarcas = new System.Windows.Forms.DataGridView();
@@ -44,11 +45,13 @@ namespace Estetica_Rossy
             this.lblMarcas = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblEsteticaRossy = new System.Windows.Forms.Label();
+            this.IMGLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGMarcas)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreM
@@ -139,7 +142,7 @@ namespace Estetica_Rossy
             // 
             // ImgCancelar
             // 
-            this.ImgCancelar.BackColor = System.Drawing.Color.Gold;
+            this.ImgCancelar.BackColor = System.Drawing.Color.NavajoWhite;
             this.ImgCancelar.Image = global::Estetica_Rossy.Properties.Resources.cancelar;
             this.ImgCancelar.Location = new System.Drawing.Point(361, 50);
             this.ImgCancelar.Name = "ImgCancelar";
@@ -151,7 +154,7 @@ namespace Estetica_Rossy
             // 
             // ImgActualiar
             // 
-            this.ImgActualiar.BackColor = System.Drawing.Color.Gold;
+            this.ImgActualiar.BackColor = System.Drawing.Color.NavajoWhite;
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
             this.ImgActualiar.Location = new System.Drawing.Point(413, 50);
@@ -177,7 +180,7 @@ namespace Estetica_Rossy
             // lblMarcas
             // 
             this.lblMarcas.AutoSize = true;
-            this.lblMarcas.BackColor = System.Drawing.Color.Gold;
+            this.lblMarcas.BackColor = System.Drawing.Color.NavajoWhite;
             this.lblMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarcas.Location = new System.Drawing.Point(12, 48);
             this.lblMarcas.Name = "lblMarcas";
@@ -187,7 +190,7 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.lblEsteticaRossy);
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -205,6 +208,16 @@ namespace Estetica_Rossy
             this.lblEsteticaRossy.TabIndex = 27;
             this.lblEsteticaRossy.Text = "Estética Rossy";
             // 
+            // IMGLogo
+            // 
+            this.IMGLogo.Image = global::Estetica_Rossy.Properties.Resources.Estetica_Rossy_Logo;
+            this.IMGLogo.Location = new System.Drawing.Point(12, 48);
+            this.IMGLogo.Name = "IMGLogo";
+            this.IMGLogo.Size = new System.Drawing.Size(455, 232);
+            this.IMGLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IMGLogo.TabIndex = 56;
+            this.IMGLogo.TabStop = false;
+            // 
             // Marcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,6 +234,8 @@ namespace Estetica_Rossy
             this.Controls.Add(this.lblNombreMarcas);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.IMGLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Marcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -233,6 +248,7 @@ namespace Estetica_Rossy
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +271,6 @@ namespace Estetica_Rossy
         private System.Windows.Forms.Label lblMarcas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblEsteticaRossy;
+        private System.Windows.Forms.PictureBox IMGLogo;
     }
 }

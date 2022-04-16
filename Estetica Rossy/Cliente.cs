@@ -18,6 +18,7 @@ namespace Estetica_Rossy
 
         int IdCliente = 0;
         string Nombre;
+        string Apellido;
         string Telefono;
 
         public Cliente(string Usuario, string Cargo)
@@ -40,15 +41,25 @@ namespace Estetica_Rossy
         #region
         private void inicioCitasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Citas min = new Citas(UsuarioN, CargoN);
-            this.Dispose();
-            min.ShowDialog();
+            Citas mc = new Citas(UsuarioN, CargoN);
+            this.Hide();
+            mc.ShowDialog();
+            this.Close();
         }
         private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Inventario minv = new Inventario(UsuarioN, CargoN);
-            this.Dispose();
+            this.Hide();
             minv.ShowDialog();
+            this.Close();
+        }
+
+        private void ordenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Orden or = new Orden(UsuarioN, CargoN);
+            this.Hide();
+            or.ShowDialog();
+            this.Close();
         }
 
         #endregion
@@ -82,7 +93,8 @@ namespace Estetica_Rossy
         private void LimpiarCampos()
         {
             this.txtNombreCliente.Text = string.Empty;
-            this.txtTelefono.Text = string.Empty;            
+            this.txtTelefono.Text = string.Empty;
+            this.txtApellido.Text = string.Empty;
         }
 
         private void Buscar()
@@ -113,16 +125,18 @@ namespace Estetica_Rossy
             {
                 IdCliente = (int)dGClientes.SelectedRows[0].Cells[0].Value;
                 Nombre = dGClientes.SelectedRows[0].Cells[1].Value.ToString();
-                Telefono = dGClientes.SelectedRows[0].Cells[2].Value.ToString();
+                Apellido = dGClientes.SelectedRows[0].Cells[2].Value.ToString();
+                Telefono = dGClientes.SelectedRows[0].Cells[3].Value.ToString();
 
                 this.txtNombreCliente.Text = Nombre;
+                this.txtApellido.Text = Apellido;
                 this.txtTelefono.Text = Telefono;
-
+                
                 añadirClienteToolStripMenuItem.Enabled = false;
             }
         }
         #endregion
-
+        
         //Funciones Pantalla
         #region
         private void ImgActualiar_Click(object sender, EventArgs e)
@@ -141,11 +155,12 @@ namespace Estetica_Rossy
                 try
                 {
                     //Guardar info del cliente
-                    //(Nombre, Telefono)
+                    //(Nombre, Apellido, Telefono)
                     cm = new SqlCommand("AgregarCliente", DB_CONN.DB_CONN);
                     cm.CommandType = CommandType.StoredProcedure;
 
                     cm.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = txtNombreCliente.Text; //Guardar el nombre del cliente
+                    cm.Parameters.Add("@Apellido", SqlDbType.VarChar).Value = txtApellido.Text; //Guardar el apellido del cliente
                     cm.Parameters.Add("@Telefono", SqlDbType.Int).Value = Convert.ToInt32(txtTelefono.Text); //Guardar el telefono del cliente en caso de necesitar comunicación                    
 
                     cm.ExecuteNonQuery();
@@ -181,6 +196,7 @@ namespace Estetica_Rossy
 
                         cm.Parameters.Add("@IdCliente", SqlDbType.Int).Value = IdCliente; //Enviar id del cliente para actualizar el campo
                         cm.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = txtNombreCliente.Text; //Actualizar el nombre del cliente
+                        cm.Parameters.Add("@Apellido", SqlDbType.VarChar).Value = txtApellido.Text; //Actualizar el apellido del cliente
                         cm.Parameters.Add("@Telefono", SqlDbType.Int).Value = Convert.ToInt32(txtTelefono.Text); //Actualizar el telefono del cliente
 
                         cm.ExecuteNonQuery();
@@ -262,6 +278,7 @@ namespace Estetica_Rossy
         }
 
         #endregion
+
 
     }
 

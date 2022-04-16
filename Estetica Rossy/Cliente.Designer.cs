@@ -29,6 +29,7 @@ namespace Estetica_Rossy
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cliente));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,7 @@ namespace Estetica_Rossy
             this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inicioCitasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblEsteticaRossy = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCargo = new System.Windows.Forms.Label();
@@ -48,13 +50,17 @@ namespace Estetica_Rossy
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblClientes = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.lblApellido = new System.Windows.Forms.Label();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
             this.ImgActualiar = new System.Windows.Forms.PictureBox();
+            this.IMGLogo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -63,7 +69,8 @@ namespace Estetica_Rossy
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opcionesToolStripMenuItem,
             this.inicioCitasToolStripMenuItem,
-            this.inventarioToolStripMenuItem});
+            this.inventarioToolStripMenuItem,
+            this.ordenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -116,6 +123,13 @@ namespace Estetica_Rossy
             this.inventarioToolStripMenuItem.Text = "Inventario";
             this.inventarioToolStripMenuItem.Click += new System.EventHandler(this.inventarioToolStripMenuItem_Click);
             // 
+            // ordenToolStripMenuItem
+            // 
+            this.ordenToolStripMenuItem.Name = "ordenToolStripMenuItem";
+            this.ordenToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.ordenToolStripMenuItem.Text = "Orden";
+            this.ordenToolStripMenuItem.Click += new System.EventHandler(this.ordenToolStripMenuItem_Click);
+            // 
             // lblEsteticaRossy
             // 
             this.lblEsteticaRossy.AutoSize = true;
@@ -128,15 +142,15 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.lblCargo);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Controls.Add(this.lblEsteticaRossy);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 158);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(603, 158);
+            this.panel1.TabIndex = 50;
             // 
             // lblCargo
             // 
@@ -161,7 +175,7 @@ namespace Estetica_Rossy
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(119, 378);
+            this.txtBuscar.Location = new System.Drawing.Point(122, 434);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Multiline = true;
             this.txtBuscar.Name = "txtBuscar";
@@ -173,7 +187,7 @@ namespace Estetica_Rossy
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(13, 381);
+            this.lblBuscar.Location = new System.Drawing.Point(23, 437);
             this.lblBuscar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(87, 29);
@@ -185,7 +199,7 @@ namespace Estetica_Rossy
             this.dGClientes.AllowUserToAddRows = false;
             this.dGClientes.AllowUserToDeleteRows = false;
             this.dGClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGClientes.Location = new System.Drawing.Point(10, 425);
+            this.dGClientes.Location = new System.Drawing.Point(13, 481);
             this.dGClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dGClientes.MultiSelect = false;
             this.dGClientes.Name = "dGClientes";
@@ -211,7 +225,7 @@ namespace Estetica_Rossy
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(23, 328);
+            this.lblTelefono.Location = new System.Drawing.Point(23, 385);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(97, 25);
             this.lblTelefono.TabIndex = 38;
@@ -220,10 +234,10 @@ namespace Estetica_Rossy
             // txtNombreCliente
             // 
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(130, 271);
+            this.txtNombreCliente.Location = new System.Drawing.Point(166, 271);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(285, 30);
+            this.txtNombreCliente.Size = new System.Drawing.Size(300, 30);
             this.txtNombreCliente.TabIndex = 36;
             // 
             // lblClientes
@@ -239,11 +253,30 @@ namespace Estetica_Rossy
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(130, 323);
+            this.txtTelefono.Location = new System.Drawing.Point(166, 380);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(285, 30);
+            this.txtTelefono.Size = new System.Drawing.Size(300, 30);
             this.txtTelefono.TabIndex = 36;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.Location = new System.Drawing.Point(166, 325);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(300, 30);
+            this.txtApellido.TabIndex = 36;
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Location = new System.Drawing.Point(23, 328);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(117, 25);
+            this.lblApellido.TabIndex = 39;
+            this.lblApellido.Text = "Apellido(s)";
             // 
             // ImgCancelar
             // 
@@ -269,17 +302,29 @@ namespace Estetica_Rossy
             this.ImgActualiar.TabStop = false;
             this.ImgActualiar.Click += new System.EventHandler(this.ImgActualiar_Click);
             // 
+            // IMGLogo
+            // 
+            this.IMGLogo.Image = global::Estetica_Rossy.Properties.Resources.Estetica_Rossy_Logo;
+            this.IMGLogo.Location = new System.Drawing.Point(284, 199);
+            this.IMGLogo.Name = "IMGLogo";
+            this.IMGLogo.Size = new System.Drawing.Size(319, 244);
+            this.IMGLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IMGLogo.TabIndex = 51;
+            this.IMGLogo.TabStop = false;
+            // 
             // Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(603, 841);
+            this.ClientSize = new System.Drawing.Size(603, 893);
             this.Controls.Add(this.ImgCancelar);
             this.Controls.Add(this.ImgActualiar);
             this.Controls.Add(this.lblClientes);
+            this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblTratamiento);
             this.Controls.Add(this.lblTelefono);
+            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.txtBuscar);
@@ -287,6 +332,8 @@ namespace Estetica_Rossy
             this.Controls.Add(this.dGClientes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.IMGLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Cliente";
@@ -300,6 +347,7 @@ namespace Estetica_Rossy
             ((System.ComponentModel.ISupportInitialize)(this.dGClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +376,9 @@ namespace Estetica_Rossy
         private System.Windows.Forms.PictureBox ImgCancelar;
         private System.Windows.Forms.ToolStripMenuItem actualizarDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ordenToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.PictureBox IMGLogo;
     }
 }

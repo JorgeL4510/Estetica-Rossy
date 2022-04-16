@@ -29,6 +29,7 @@ namespace Estetica_Rossy
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedores));
             this.lblProveedores = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.ImgCancelar = new System.Windows.Forms.PictureBox();
@@ -47,17 +48,19 @@ namespace Estetica_Rossy
             this.editarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.IMGLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgActualiar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGProveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDProveedores)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProveedores
             // 
             this.lblProveedores.AutoSize = true;
-            this.lblProveedores.BackColor = System.Drawing.Color.Gold;
+            this.lblProveedores.BackColor = System.Drawing.Color.NavajoWhite;
             this.lblProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProveedores.Location = new System.Drawing.Point(12, 42);
             this.lblProveedores.Name = "lblProveedores";
@@ -78,7 +81,7 @@ namespace Estetica_Rossy
             // 
             // ImgCancelar
             // 
-            this.ImgCancelar.BackColor = System.Drawing.Color.Gold;
+            this.ImgCancelar.BackColor = System.Drawing.Color.NavajoWhite;
             this.ImgCancelar.Image = global::Estetica_Rossy.Properties.Resources.cancelar;
             this.ImgCancelar.Location = new System.Drawing.Point(457, 44);
             this.ImgCancelar.Name = "ImgCancelar";
@@ -90,7 +93,7 @@ namespace Estetica_Rossy
             // 
             // ImgActualiar
             // 
-            this.ImgActualiar.BackColor = System.Drawing.Color.Gold;
+            this.ImgActualiar.BackColor = System.Drawing.Color.NavajoWhite;
             this.ImgActualiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ImgActualiar.Image = global::Estetica_Rossy.Properties.Resources.Actualizar;
             this.ImgActualiar.Location = new System.Drawing.Point(518, 42);
@@ -196,7 +199,7 @@ namespace Estetica_Rossy
             this.opcionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(582, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(582, 28);
             this.menuStrip1.TabIndex = 67;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,7 +210,7 @@ namespace Estetica_Rossy
             this.editarProveedorToolStripMenuItem,
             this.eliminarToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // añadirProveedorToolStripMenuItem
@@ -233,12 +236,22 @@ namespace Estetica_Rossy
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(582, 97);
             this.panel1.TabIndex = 70;
+            // 
+            // IMGLogo
+            // 
+            this.IMGLogo.Image = global::Estetica_Rossy.Properties.Resources.Estetica_Rossy_Logo;
+            this.IMGLogo.Location = new System.Drawing.Point(120, 129);
+            this.IMGLogo.Name = "IMGLogo";
+            this.IMGLogo.Size = new System.Drawing.Size(319, 244);
+            this.IMGLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IMGLogo.TabIndex = 71;
+            this.IMGLogo.TabStop = false;
             // 
             // Proveedores
             // 
@@ -260,6 +273,8 @@ namespace Estetica_Rossy
             this.Controls.Add(this.lblNombreMarcas);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.IMGLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Proveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -271,6 +286,7 @@ namespace Estetica_Rossy
             ((System.ComponentModel.ISupportInitialize)(this.NUDProveedores)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMGLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +312,6 @@ namespace Estetica_Rossy
         private System.Windows.Forms.ToolStripMenuItem editarProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox IMGLogo;
     }
 }
